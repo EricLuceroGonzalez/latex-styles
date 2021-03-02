@@ -1,0 +1,934 @@
+\ProvidesPackage{presentation}
+%%%%%%%%% ERIC LUCERO G. - TESIS MACRO  %%%%%%%%%%%%
+%% 		@author:  Eric Lucero                               %%
+%% 		@contact: ericlucero501@@gmail.com                  %%
+%% 		@revised:    Jan / 2020                 %%
+%%                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel} % espanol, ingles
+%\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{amsthm}
+\usefonttheme[onlymath]{serif}
+\usepackage{bm}
+\usepackage{siunitx}   % Sistema internacional
+\usepackage{tikz}
+\usepackage{pgfplots,pgfplotstable}
+\usepackage{smartdiagram}
+\usetikzlibrary{mindmap,trees,backgrounds,shapes.geometric, arrows,shadings,angles, quotes}
+\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur, decorations.markings,patterns,decorations.pathmorphing, shapes.arrows,matrix,positioning}
+\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur,decorations.pathmorphing}
+\usepackage{tkz-euclide}
+% \usetkzobj{all}
+	\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+	\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+	\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+	\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+	\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+
+%% Para la semiesfera
+\pgfkeys{/tikz/.cd, view angle/.initial=0, view angle/.store in=\picangle}
+\tikzset{
+  horizontal/.style={y={(0,sin(\picangle))}},
+  vertical at/.style={x={([horizontal] #1:1)}, y={(0,cos(\picangle)cm)}},
+  every label/.style={font=\tiny, inner sep=1pt},
+}
+
+\usepackage{tabu}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable} 
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{color, colortbl}
+\usepackage{gensymb}
+%\usepackage{footnote}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+
+%   Direccion del archivo de imagenes:
+%  \graphicspath{{/home/ericlucero/Dropbox/00Maestria-ERIC/Imagenes/PresentacionDefensa/}}
+\graphicspath{
+{/home/ericlucero/Dropbox/00Maestria-ERIC/Imagenes/Tesis/} 
+{/home/eric/Dropbox/00Maestria-ERIC/Imagenes/} 
+{/home/eric/Dropbox/00Maestria-ERIC/Imagenes/PresentacionDefensa/} 
+{/home/ericlucero/Dropbox/00Maestria-ERIC/Imagenes/Tesis_Resultados/} 
+{/home/ericlucero/Dropbox/00-academic/UMIP/Fisica/Fisica1/Presentacion/imagenes/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/} 
+{/home/ericlucero/Dropbox/00-academic/CursosGMP/Guias/Logos/}
+{/home/ericlucero/Dropbox/00-academic/CursosGMP/GMPGuias/Logos/} 
+{/home/ericlucero/Dropbox/00-academic/UMIP/Graficas/}
+{/home/ericlucero/Dropbox/Python_things/media/}
+{/home/ericlucero/Downloads/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/latexDraw/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/fisica2/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/Logos/}
+} 
+
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{gensymb} %degree
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage[version=3]{mhchem}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=colorA!75,          % color of internal links
+    citecolor=colorA!75,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+%%%%%%%%%%%%%%% COMANDOS DEFINIDOS %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% COMANDOS DEFINIDOS %%%%%%%%%%%%%%%
+\newcommand{\fradial}[2]{\phi \left( \norm{x_{#1} - x_{#2}}_2\right) }     
+\newcommand{\fradialcent}[2]{\phi \left( \norm{x_{#1}^c - x_{#2}^c}_2,\epsilon\right) }
+\newcommand{\fradialh}[2]{\phi \left( \norm{x_{#1} - x_{#2}^c}\right)}     
+\newcommand{\fradialhx}[2]{\phi_x \left( \norm{x_{#1}^c - x_{#2}^c},\epsilon\right)}  
+\newcommand{\fradialhy}[2]{\phi_y \left( \norm{x_{#1}^c - x_{#2}^c},\epsilon\right)}  
+\newcommand{\fradialhxx}[2]{\phi_{xx} \left( \norm{x_{#1}^c - x_{#2}^c}_2,\epsilon\right)}  
+\newcommand{\fradialhyy}[2]{\phi_{yy} \left( \norm{x_{#1}^c - x_{#2}^c}_2,\epsilon\right)}  
+\newcommand{\fradialx}[2]{\phi_x \left( \norm{{#1} - {#2}}\right)}  
+\newcommand{\fradialy}[2]{\phi_y \left( \norm{{#1} - {#2}}\right)}  
+\newcommand{\parcial}[2]{\frac{\partial #1}{\partial #2} }
+\newcommand{\parciald}[2]{\dfrac{\partial^2 #1}{\partial #2^2} }
+\newcommand{\deri}[2]{\frac{d #1}{d #2} }
+\newcommand{\derid}[2]{\frac{d^{2} #1}{d #2^{2}} }
+\newcommand{\derit}[2]{\frac{d^{3} #1}{d #2^{3}} }
+\newcommand{\deric}[2]{\frac{d^{4} #1}{d #2^{4}} }
+\newcommand{\Deri}[2]{\dfrac{d #1}{d #2} }
+\newcommand{\Derid}[2]{\dfrac{d^{2} #1}{d #2^{2}} }
+\newcommand{\Derit}[2]{\dfrac{d^{3} #1}{d #2^{3}} }
+\newcommand{\Deric}[2]{\dfrac{d^{4} #1}{d #2^{4}} }
+\renewcommand{\sin}{\sen} 
+\renewcommand{\sinh}{\senh} 
+\renewcommand{\vector}[1]{\vec{\bm{#1}}}
+\newcommand{\raya}{$\rule{2cm}{0.12mm}$}
+\newcommand{\abso}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\hil}[1]{\langle #1 \rangle}
+
+\newcommand{\ihat}{\boldsymbol{\hat{\imath}}}
+\newcommand{\jhat}{\boldsymbol{\hat{\jmath}}}
+\newcommand{\khat}{\boldsymbol{\hat{\kmath}}}
+\newcommand{\xhat}{\boldsymbol{\hat{x}}}
+\newcommand{\yhat}{\boldsymbol{\hat{y}}}
+%\newcommand{\khat}{\boldsymbol{\hat{k}}}
+\newcommand{\zhat}{\boldsymbol{\hat{z}}}
+
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+\renewcommand{\thefootnote}{\alph{footnote}}
+\newcommand*\chem[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\colorea}[2]{{\color{#1} #2 }}
+\newcommand{\gradiente}[1]{\dfrac{\partial #1}{\partial x} \boldsymbol{\hat{\imath}} + \dfrac{\partial #1}{\partial y} \boldsymbol{\hat{\jmath}} }
+
+\newcommand{\laplaciano}[1]{\dfrac{\partial^2 #1}{\partial x^2} + \dfrac{\partial^2 #1}{\partial y^2} }
+\newcommand{\laplacianor}[1]{\dfrac{\partial^2 #1}{\partial r_x^2} + \dfrac{\partial^2 #1}{\partial r_y^2} }
+
+%\renewcommand{\lstlistingname}{Código}
+%
+%\lstnewenvironment{matlab}[1][]  
+%{  
+% \lstset{#1,language=Matlab}  
+%}  
+%{  
+%} 
+%%%%%%%%%%%%%%%%%%%%% BEAMER CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%% 
+% Colores y estilos del Beamer
+%%%%%%%%%%%%%%%%%%%%% BEAMER CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%% 
+\definecolor{colorA}{RGB}{125, 100, 255}% PURPLE
+\definecolor{colorB}{RGB}{87, 255, 179}% GREEN
+\definecolor{colorC}{RGB}{255, 143, 125}% PEACH
+\definecolor{colorD}{RGB}{255, 233, 74} % YELLOW
+\definecolor{colorE}{RGB}{73, 52, 179} % BACK PURPLE
+
+\definecolor{colorALight}{RGB}{213, 204, 255} % %LIGHT PURPLE
+\definecolor{colorBLight}{RGB}{214, 255, 242} %% LIGHT GREEN
+\definecolor{colorCLight}{RGB}{255, 211, 204} %% LIGHT PEACH
+\definecolor{colorDLight}{RGB}{255, 249, 204} %% LIGHT YELLOW
+
+\definecolor{aquaA}{HTML}{3FA8B0}% 
+\definecolor{aquaB}{HTML}{57FAFA}
+\definecolor{aquaC}{HTML}{80C4C4}
+\definecolor{aquaD}{HTML}{E9F5F5}
+\definecolor{aquaE}{HTML}{2B7A7A}
+
+\definecolor{purpleA}{HTML}{3C46B0}
+\definecolor{purpleB}{HTML}{5664FC}
+\definecolor{purpleC}{HTML}{6F77C7}
+\definecolor{purpleD}{HTML}{BFC4F2}
+\definecolor{purpleE}{HTML}{2C3380}
+
+\definecolor{orangeA}{HTML}{703E23}
+\definecolor{orangeB}{HTML}{F2B594}
+\definecolor{orangeC}{HTML}{F0844A}
+\definecolor{orangeD}{HTML}{C25F2A}
+\definecolor{orangeE}{HTML}{BD683A}
+
+\definecolor{coralA}{HTML}{703E23}
+\definecolor{coralB}{HTML}{F2B594}
+\definecolor{coralC}{HTML}{F0844A}
+\definecolor{coralD}{HTML}{C25F2A}
+\definecolor{coralE}{HTML}{BD683A}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\useinnertheme{circles}
+\useoutertheme{shadow}
+\usecolortheme[RGB={125,100,255}]{structure}
+\usefonttheme{structurebold}  %\usefonttheme{serif}
+
+	\setbeamertemplate{headline}{}
+	\useoutertheme[left]{sidebar}
+	\setbeamertemplate{navigation symbols}{}
+	\setbeamerfont{footnote}{size=\tiny}
+	\setbeamercolor{footnote mark}{fg=red}
+	% ----------- ---  Colors  --- ----------- 
+	\setbeamercolor{title}{fg=colorA,bg=colorC}  
+	\setbeamercolor{structure}{fg=colorC}
+	\setbeamercolor{author in head/foot}{bg=colorC,fg=colorA}
+	% \setbeamercolor{title in head/foot}{ bg=colorA!90,fg=red}
+	% \setbeamercolor{date in head/foot}{bg=colorA!80,fg=colorC}
+%	\setbeamercolor{frametitle}{fg=colorA!20,bg=colorA!65}  
+	% ----------- ---  Sidebar  --- ----------- 
+	\setbeamercolor{sidebar}{bg=colorA,fg=colorE}
+	\setbeamercolor{author in sidebar}{,fg=colorC}
+	\setbeamercolor{title in sidebar}{,fg=colorC}
+	\setbeamercolor{section in sidebar}{bg=white,fg=colorC}
+	\setbeamercolor{subsection in sidebar}{bg=white,fg=colorA}
+	\setbeamercolor{subsubsection in sidebar}{bg=colorA!10,fg=colorA!90}	
+\addtobeamertemplate{sidebar left}{}{
+\begin{minipage}{1.7cm}
+\centering
+      \vspace{0.25\baselineskip}
+        \includegraphics[width = 0.75\textwidth]{logo-gris}
+      \vspace{\baselineskip}
+%      \color{white}{\insertshorttitle[width={2cm},center,respectlinebreaks]}
+%\vspace{4\baselineskip}
+\end{minipage}
+}
+
+%%%%%%%%%%% HEIGHT OF TITLEFRAME  %%%%%%%%
+\makeatletter
+\beamer@headheight=-1\baselineskip     
+%controls the height of the headline, default is 2.5    
+\makeatother
+%%%%%%%%%%% HEIGHT OF TITLEFRAME  %%%%%%%%
+
+% ------------- --------------------------------------- -------------
+%%%%%%%%%%%% FOOTLINE CUSTOM %%%%%%%%
+%\makeatletter
+%\setbeamertemplate{footline}
+%{
+%  \leavevmode%
+%  \hbox{%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortinstitute%\insertshortauthor
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertauthor%\insertshorttitle% \insertsubsection
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+%    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+%    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+%  \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
+%\makeatother
+%%%%%%%%%%%% FOOTLINE CUSTOM %%%%%%%%
+%%%%%%%%%%% FOOTLINE CUSTOM %%%%%%%%
+% ------------- --------------------------------------- -------------
+		%%%%%%%%%%% COUNTER: CONSERVAR ENUMERACION  %%%%%%%%
+		%%%%%%%%%%% COUNTER: CONSERVAR ENUMERACION  %%%%%%%%
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\resetcounteronoverlays{saveenumi}
+		%%%%%%%%%%% COUNTER: CONSERVAR ENUMERACION  %%%%%%%%
+		%%%%%%%%%%% COUNTER: CONSERVAR ENUMERACION  %%%%%%%%
+		
+%%%%%%%%%%%%%%%%%%%%% BEAMER CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%% BEAMER CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%% 
+
+%			Bibliografia
+%style=verbose-ibid,
+
+% \usepackage[backend=bibtex, citestyle=verbose]{biblatex}
+\usepackage{biblatex}
+\addbibresource{theBibliography.bib}
+
+
+
+
+% Archivo .bib que contiene bibliografia:
+%\usepackage[backend=bibtex,style=ieee]{biblatex}
+\DeclareCiteCommand{\parencite}[\mkcolorbibparens]
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\makeatletter
+\newrobustcmd{\mkcolorbibparens}[1]{%
+  \begingroup
+  \tiny
+  \color{colorA}%
+  \blx@blxinit
+  \blx@setsfcodes
+  \bibopenparen#1\bibcloseparen
+  \endgroup}
+\makeatother
+%		\date{\tiny{Enero 26, 2017}}
+
+
+% logo of my university
+	\titlegraphic{\hspace{0cm} \vspace{2.5cm}\includegraphics[width=3.5cm]{logo2}}
+
+\usepackage{textpos}
+\selectlanguage{spanish}
+
+\tikzset{level 1 concept/.append style={font=\sf, sibling angle=90,level distance = 40mm}}
+\tikzset{level 2 concept/.append style={font=\sf, sibling angle=45,level distance = 20mm}}
+\tikzset{level 3 concept/.append style={font=\sf, sibling angle=45,level distance = 10mm}}
+\tikzset{every node/.append style={scale=0.6}}
+
+\makeatletter
+\setbeamertemplate{sidebar canvas \beamer@sidebarside}[vertical shading][top=colorA!55,bottom=colorA]
+\makeatother
+
+\colorlet{titleleft}{colorA}
+\colorlet{titlemiddle}{colorA!20}
+\colorlet{titleright}{colorA!90}
+
+\pgfdeclarehorizontalshading[titleleft,titlemiddle,titleright]
+      {beamer@frametitleshade}{\paperheight}{
+    color(0pt)=(titleleft);
+    color(0.6\paperwidth)=(titlemiddle);
+    color(\paperwidth)=(titleright)
+  }
+%
+\setbeamercolor{author in head/foot}{parent=palette primary,bg=,fg=colorA!20}
+\setbeamercolor{title in head/foot}{parent=palette secondary,bg=,fg=colorA!20}
+\setbeamercolor{date in head/foot}{parent=palette tertiary,bg=,fg=colorA!20}
+%	\setbeamercolor{author in head/foot}{bg=colorA,fg=colorA!20}
+%	\setbeamercolor{title in head/foot}{ bg=colorA!90,fg=colorA!10}
+%	\setbeamercolor{date in head/foot}{bg=colorA!80,fg=colorA!10}
+
+\makeatletter
+
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \setbox\beamer@tempbox=\hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortinstitute
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+        \end{beamercolorbox}%
+        }%
+        \beamer@tempdim=\ht\beamer@tempbox%
+        \advance\beamer@tempdim by 4pt%
+        \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{20pt}
+            \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+            \pgfusepath{clip}
+            \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+        \end{pgfpicture}
+        \vskip-\beamer@tempdim%
+        \box\beamer@tempbox%    
+}%
+\makeatother
+
+
+
+
+\makeatletter
+%\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+%    color(0pt)=(frametitle.bg);
+%    color(\paperwidth)=(frametitle right.bg)}
+%
+%\AtBeginDocument{
+%    \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+%        color(0pt)=(bg);
+%        color(4pt)=(black!50!bg)}
+%}
+%
+%\addtobeamertemplate{headline}
+%{}
+%{%
+%    \vskip-0.2pt
+%    \pgfuseshading{beamer@topshade}
+%    \vskip-2pt
+%}
+%
+
+\setbeamertemplate{frametitle}
+{%
+    \nointerlineskip%
+    \vskip-2pt%
+    \hbox{\leavevmode
+        \advance\beamer@leftmargin by -12bp%
+        \advance\beamer@rightmargin by -12bp%
+        \beamer@tempdim=\textwidth%
+        \advance\beamer@tempdim by \beamer@leftmargin%
+        \advance\beamer@tempdim by \beamer@rightmargin%
+        \hskip-\Gm@lmargin\hbox{%
+            \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+                    \vbox{}\vskip-.75ex%
+                    \leftskip0.3cm%
+                    \rightskip0.3cm plus1fil\leavevmode
+                    \insertframetitle%
+                    \ifx\insertframesubtitle\@empty%
+                    \strut\par%
+                    \else
+                    \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+                    \fi%
+                    \nointerlineskip
+                    \vbox{}%
+                \end{minipage}}%
+                \beamer@tempdim=\ht\beamer@tempbox%
+                \advance\beamer@tempdim by 2pt%
+                \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+                    \usebeamercolor{frametitle right}
+                    \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+                    \pgfusepath{clip}
+                    \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+                \end{pgfpicture}
+                \hskip-\paperwidth%
+                \box\beamer@tempbox%
+            }%
+            \hskip-\Gm@rmargin%
+        }%
+        \nointerlineskip
+        \vskip-0.2pt
+        \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+        \vskip-2pt
+    }
+\makeatother
+
+\newcommand{\GuiasTikZ}[8]{
+\draw[dashed,line width=0.1pt,gray] ({#5},{#6}) grid [xstep=0.5cm, ystep=0.5cm] ({#3},{#4});
+\draw[help lines,line width=0.1pt,red] ({#1},{#2}) grid ({#3},{#4});
+\draw[help lines,line width=0.1pt,blue] ({#5},{#6}) grid ({#7},{#8}); 
+}      
+%%%\GuiasTikZ{xminPos}{yminPos}{xmaxPos}{ymaxPos}{xminNeg}{yminNeg}
+
+%\draw[dashed,green,line width=0.1pt] (-4,-4) grid [xstep=0.5cm, ystep=0.5cm] (6,4);
+%\draw[help lines,line width=0.1pt,blue] (0,0) grid (6,4);
+%\draw[help lines,line width=0.1pt,red] (-4,-4) grid (0,0);
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+%\newcounter{saveenumi}
+%\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+%\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+%\usepackage[perpage]{footmisc}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand*{\thefootnote}{\alph{footnote}}
+\usepackage{subcaption}
+%Up and down ruler
+\newcommand{\tapemeasure}[1]{%
+\parbox{#1}{%
+{\fgrulerdefnum{}\fgrulercaptioncm{}\ruler{rightdown}{#1}}\\[2pt]
+\ruler{rightup}{#1}}}    
+    
+    
+\usepackage[type=none]{fgruler}
+
+%% Clock for tikz
+\newcommand\clock[4]{%
+\begin{tikzpicture}[line cap=round,line width=3pt,scale=#4]
+\filldraw [fill=blue!20] (0,0) circle (2cm);
+\foreach \angle / \label in
+{0/3, 30/2, 60/1, 90/12, 120/11, 150/10, 180/9,
+210/8, 240/7, 270/6, 300/5, 330/4}
+{
+\draw[line width=1pt] (\angle:1.8cm) -- (\angle:2cm);
+\draw (\angle:1.4cm) node{\textsf{\label}};
+}
+\foreach \angle in {0,90,180,270}
+\draw[line width=2pt] (\angle:1.6cm) -- (\angle:2cm);
+\node[draw=none,font=\tiny,text=red] at (0,.9cm) {PHYSICS TIME};
+\draw[rotate=90,line width=2pt] (0,0) -- (-#1*30-#2*30/60:0.9cm); % hours
+\draw[rotate=90,line width=1.5pt,blue] (0,0) -- (-#2*6:1.2cm); % minutes
+\draw[rotate=90,thin,red] (0,0) -- (-#3*6:1.2cm); % seconds
+\path [fill=red] (0,0) circle (2pt);
+%
+\end{tikzpicture}%
+}
+
+%\newtcolorbox{coolBox}[2][]{colframe=boxexplicacion,colback=white,coltitle=white!65,title={#2},fonttitle=\bfseries,#1}
+%\newlist{coloritemize}{itemize}{1}
+%\setlist[coloritemize]{label=\textcolor{itemizecolor}{\textbullet}}
+%\colorlet{itemizecolor}{.}% Default colour for \item in itemizecolor    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtcolorbox{instrucciones}[2][]{colframe=boxexplicacion,colback=boxexplicacion!10,coltitle=white!65,title={#2},fonttitle=\bfseries,#1}
+
+%\newtcolorbox[use counter=ejemplo]{ejemplo}[1][]{colframe=ejemploFg,colback=ejemploFg!20,coltitle=white!65,title={Ejemplo \thetcbcounter},fonttitle=\bfseries}
+%
+%\newtcolorbox[use counter=ejercicio]{ejercicio}[1][]{colframe=framealertas,coltext=fontalertas,colback=backalertas,title={Ejercicio \thetcbcounter},fonttitle=\bfseries}	
+%%%%%%%%%%%%%%%%% EXPLICACIONES  %%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%% 
+%\colorlet{colexam}{red!75!white}
+%\newtcolorbox[use counter=explicacion]{explicacion}{%
+%empty,title={Explicación \thetcbcounter},attach boxed title to top left,boxed title style={empty,size=minimal,toprule=2pt,top=4pt,overlay={\draw[boxexplicacion,line width=2pt]([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},coltitle=boxexplicacion,fonttitle=\Large\bfseries,before=\par\medskip\noindent,parbox=false,boxsep=0pt,left=0pt,right=3mm,top=4pt,breakable,pad at break*=0mm,vfill before first,overlay unbroken={\draw[boxexplicacion,line width=1pt]
+%([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+%--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+%overlay first={\draw[boxexplicacion,line width=1pt]
+%([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+%--([xshift=-0.5pt]frame.south east); },
+%overlay middle={\draw[boxexplicacion,line width=1pt] ([xshift=-0.5pt]frame.north east)
+%--([xshift=-0.5pt]frame.south east); },
+%overlay last={\draw[boxexplicacion,line width=1pt] ([xshift=-0.5pt]frame.north east)
+%--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
+%}
+%
+%\newtcbox{\alerta}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,arc=1pt,boxsep=1pt,before upper={\vphantom{dlg}},
+%  colframe=framealertas,coltext=fontalertas,colback=backalertas,overlay={\begin{tcbclipinterior}\fill[boxalertas] (frame.south west)
+%    rectangle node[text=white,font=\bfseries\Huge] {!} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
+%    
+%\newtcolorbox[]{alertas}[1][]{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,arc=12pt,boxsep=2pt,top=4pt,left=1cm,colframe=framealertas,coltext=fontalertas,colback=backalertas,overlay={\begin{tcbclipinterior}\fill[boxalertas] (frame.south west) rectangle node[text=white,font=\bfseries\Huge] {!} ([xshift=8mm]frame.north west);\end{tcbclipinterior}}}
+%
+\newtcbox{\alerta}{
+	enhanced,
+	nobeforeafter,
+	tcbox raise base,
+	boxrule=0.4pt,
+	arc=1pt,
+	boxsep=1pt,
+	before upper={\vphantom{dlg}},
+	  colframe=colorA,
+	  coltext=colorA,
+	  colback=colorCLight,
+	  overlay={
+		  \begin{tcbclipinterior}
+		  \fill[colorC] (frame.south west) rectangle node[text=white,
+		  font=\bfseries\Huge] {!} ([xshift=4mm]frame.north west);
+		  \end{tcbclipinterior}
+	  }
+}
+
+\newtcolorbox{mybox}[2][]{colbacktitle=red!10!white,
+colback=blue!10!white,coltitle=red!70!black,
+title={#2},fonttitle=\bfseries,#1}
+
+\newtcolorbox{mybox2}[2][]{
+  toptitle=1mm,
+  boxsep=2mm,
+  colbacktitle=colorA,
+  coltitle=colorD,
+  colback=colorALight,
+  colframe=colorA,
+title={\large #2},fonttitle=\bfseries, #1}
+
+\newtcolorbox{mybox3}[2][]{
+  toptitle=1mm,
+  boxsep=2mm,
+  colbacktitle=colorD,
+  coltitle=colorE,
+  colback=colorDLight,
+  colframe=colorD,
+title={\large #2},fonttitle=\bfseries, #1}
+
+\newtcolorbox{mybox4}[2][]{
+  toptitle=1mm,
+  boxsep=2mm,
+  colbacktitle=colorB,
+  coltitle=colorE,
+  colback=colorBLight,
+  colframe=colorB,
+title={\large #2},fonttitle=\bfseries, #1}
+
+%%\newcounter{saveenumi}
+%\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+%\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+\newcounter{explicacion}
+\newcounter{ejemplo}
+\newcounter{definitionCounter}
+\newcounter{ejercicio}
+\newcounter{theocounter}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox[use counter=theocounter]{teorema}[1][]{
+              breakable,% 
+              colframe=green!50!black,
+              colback=green!20!white,% 
+              coltitle=white,% 
+              fonttitle={\bfseries \scshape} ,%   
+              sharp corners,
+              title={Teorema \thetcbcounter},
+              }
+            
+
+\newtcolorbox[use counter=definitionCounter]{tcbdefinicion}[1]{
+	colframe=colorA,
+	colback=colorALight,
+  coltitle=black,
+  sharp corners,
+  breakable,
+	fonttitle=\bfseries,
+	title={Definición \thetcbcounter: #1},
+%	valign=center,width=(\linewidth-3em)
+	}
+	
+\newtcolorbox{instrucciones}[2][]{
+	colframe=colorC,
+	colback=colorCLight,
+	coltitle=white!65,
+	title={#2},
+	fonttitle=\bfseries,#1
+  }
+  
+
+\newtcolorbox{lecturas}[1][]{
+	colframe=white,
+	colback=colorBLight,
+	coltitle=colorA,
+	title={Lecturas},
+	fonttitle=\Huge\bfseries,#1
+	}
+\newtcolorbox[use counter=ejemplo]{ejemplo}[1][]{
+	colframe=colorB,
+	colback=colorBLight,
+  coltitle=colorA,
+  sharp corners,
+    breakable,
+	title={Ejemplo \thetcbcounter},
+	fonttitle=\bfseries
+  }
+  
+  \newtcolorbox{ejemploB}[1][]{
+	colframe=ejemploFg,
+	colback=ejemploFg!20,
+  coltitle=white!65,
+  sharp corners,  
+    breakable,
+	title={Ejemplo},
+	fonttitle=\bfseries
+	}
+
+\newtcolorbox[use counter=ejercicio]{ejercicio}[1][]{
+	colframe=colorE,
+	coltext=colorE,
+	colback=colorALight,
+	title={Ejercicio \thetcbcounter},
+	fonttitle=\bfseries
+}	
+
+\newtcolorbox[use counter=definitionCounter]{definicion}[1]{
+	colframe=colorC,
+	colback=colorCLight,
+  coltitle=colorE,
+  sharp corners,
+  breakable,
+	fonttitle=\bfseries,
+	title={Definición \thetcbcounter: #1},
+%	valign=center,width=(\linewidth-3em)
+  }
+
+  \newtcolorbox{enfasis}{
+	colframe=colorC,
+  colback=colorDLight,
+  % width=0.8\textwidth,
+	fonttitle=\bfseries,
+  boxrule=2pt,
+  center
+  }
+
+%%%%%%%%%%%%%%%%% EXPLICACIONES  %%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%% 
+%\colorlet{colexam}{red!75!white}
+%\newtcolorbox[use counter=explicacion]{explicacion}{%
+%	empty,
+%	title={Explicación \thetcbcounter},
+%	attach boxed title to top left,
+%	boxed title style={
+%			empty,
+%			size=minimal,
+%			toprule=2pt,
+%			top=4pt,
+%			overlay={\draw[boxexplicacion,line width=2pt]([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}
+%	},
+%	coltitle=boxexplicacion,
+%	fonttitle=\Large\bfseries,before=\par\medskip\noindent,parbox=false,boxsep=0pt,left=0pt,right=3mm,top=4pt,breakable,pad at break*=0mm,
+%	vfill before first,overlay unbroken={\draw[boxexplicacion,line width=1pt]
+%	([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+%	--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+%	overlay first={\draw[boxexplicacion,line width=1pt]
+%	([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+%	--([xshift=-0.5pt]frame.south east); },
+%	overlay middle={\draw[boxexplicacion,line width=1pt] ([xshift=-0.5pt]frame.north east)
+%	--([xshift=-0.5pt]frame.south east); },
+%	overlay last={\draw[boxexplicacion,line width=1pt] ([xshift=-0.5pt]frame.north east)
+%	--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
+%}
+
+
+    
+\newtcolorbox[]{alertas}[1][]{
+	enhanced,
+	nobeforeafter,
+	tcbox raise base,
+	boxrule=0.4pt,
+	arc=12pt,
+	boxsep=2pt,
+	top=4pt,
+	left=1cm,
+	colframe=framealertas,
+	coltext=fontalertas,
+	colback=backalertas,
+	overlay={
+		\begin{tcbclipinterior}
+		\fill[boxalertas] (frame.south west) rectangle node[text=white,font=\bfseries\Huge] {!} ([xshift=8mm]frame.north west);
+		\end{tcbclipinterior}
+	}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+    \usepackage{ifthen}
+
+\usepackage{xcolor}
+\colorlet{lightcyan}{cyan!40!white}
+
+\usepackage{chngcntr}
+\usepackage{stackengine}
+
+\usepackage{tasks}
+\newlength{\longestlabel}
+\settowidth{\longestlabel}{\bfseries viii.}
+
+\settasks{counter-format={tsk[1].}, label-format={\bfseries}, label-width=\longestlabel,
+    item-indent=0pt, label-offset=2pt, column-sep={10pt}}
+
+\usepackage[lastexercise,answerdelayed]{exercise}
+%\counterwithin{Exercise}{chapter}
+%\counterwithin{Answer}{chapter}
+%\renewcounter{Exercise}[chapter]
+%\newcommand{\QuestionNB}{\colorea{cyan}{\bfseries\arabic{Question}}.\ }
+\renewcommand{\ExerciseName}{EXERCISES}
+\renewcommand{\ExerciseHeader}{\noindent\def\stackalignment{l}% code from https://tex.stackexchange.com/a/195118/101651
+    \stackunder[0pt]{\colorbox{cyan}{\textcolor{white}{\textbf{\LARGE\ExerciseHeaderNB\;\large\ExerciseName}}}}{\textcolor{lightcyan}{\rule{\linewidth}{2pt}}}\medskip}
+\renewcommand{\AnswerName}{Exercises}
+\renewcommand{\AnswerHeader}{\ifthenelse{\boolean{firstanswerofthechapter}}%
+    {\bigskip\noindent\textcolor{cyan}{\textbf{CHAPTER \thesection}}\newline\newline%
+        \noindent\bfseries\emph{\textcolor{cyan}{\AnswerName\ \ExerciseHeaderNB, page %
+                \pageref{\AnswerRef}}}\smallskip}
+    {\noindent\bfseries\emph{\textcolor{cyan}{\AnswerName\ \ExerciseHeaderNB, page \pageref{\AnswerRef}}}\smallskip}}
+\setlength{\QuestionIndent}{16pt}
+
+\def\dy{\,dy}
+\def\dx{\,dx}
+\def\dydx{\dfrac{dy}{dx}}
+\def\dydt{\dfrac{dy}{dt}}
+\def\dxdt{\dfrac{dx}{dt}}
+\def\ddyddx{\dfrac{d^2y}{dx^2}}
+\newcommand{\iiintA}[8]{\displaystyle   \int_{#1}^{#2} \int_{#3}^{#4} \int_{#5}^{#6} #7 \; #8}
+\newcommand{\iintA}[6]{\displaystyle   \int_{#1}^{#2} \int_{#3}^{#4} #5 \; #6}
+
+\newcommand{\intX}[1]{\displaystyle \int #1 \; dx}
+\newcommand{\intS}[1]{\displaystyle \int #1 \; ds}
+\newcommand{\intY}[1]{\displaystyle \int #1 \; dy}
+\newcommand{\intU}[1]{\displaystyle \int #1 \; du}
+\newcommand{\intT}[1]{\displaystyle \int #1 \; dt}
+\newcommand{\intTheta}[1]{\displaystyle \int #1 \; d\theta}
+
+\newcommand{\evaluation}[2]{\colorea{red}{\Bigg|_{#1}^{#2}}}
+
+
+  
+% \newtcolorbox[]{alertas}[1][]{
+%   % enhanced,
+% % nobeforeafter,
+% % tcbox 
+% % raise base,
+% boxrule=0.4pt,
+% arc=12pt,
+% boxsep=2pt,
+% top=4pt,
+% left=1cm,
+% colframe=green!50!black,
+% coltext=green!45!black,
+% colback=green!12!white,
+% overlay={\begin{tcbclipinterior}
+% \fill[green!75!blue!50!white] (frame.south west) rectangle node[text=white,font=\bfseries\Huge] {!} ([xshift=8mm]frame.north west);
+% \end{tcbclipinterior}}
+% }
+
+% \newtcolorbox[use counter=ejemplo]{ejemplo}[1][]{
+%   colframe=ejemploFg,
+%   colback=ejemploFg!20,
+%   coltitle=white!65,
+%   title={Ejemplo \thetcbcounter},
+%   fonttitle=\bfseries
+%   }
+
+  %%%%%%%%%%%%%%				definition				%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{filecontents}{potencial.data}
+%   # MOPS 	Power [mW]
+%   1	6.30
+%   2	1.60
+%   3	0.70
+%   4	0.39
+%   5	0.25
+%   7.5 0.11
+%   \end{filecontents}
+
+  \tikzset{
+    box/.style  = {draw,rectangle, minimum width=5cm, minimum height=1.2cm, text centered, text width=5cm, font=\Large},
+    myarrow/.style = {line width=2mm, draw=blue, -triangle 60, fill=blue!40,postaction={draw, line width=4mm, shorten >=6mm, -}}
+}
+
+% \newcommand{\cf}[2]{\colorea{#1}{#2}}
+\newcommand{\colf}[2]{\colorea{#1}{#2}}
+
+\newcommand{\cubebi}[2]{\left(#1\right)^3 + 3 \left(#1\right)^2\left(#2\right) + 3\left(#1\right)\left(#2\right)^2 + \left(#2\right)^3}
+\newcommand{\cubebineg}[2]{\left(#1\right)^3 - 3 \left(#1\right)^2\left(#2\right) + 3\left(#1\right)\left(#2\right)^2 - \left(#2\right)^3}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+
+\newcommand{\trinomio}[4]{\left(#1\right)^3 #3 3\left(#1\right)^2\left(#2\right) + 3\left(#1\right)\left(#2\right)^2 #4 \left(#2\right)^3}
+\newcommand{\limiteA}[3]{\displaystyle \lim_{#1 \rightarrow #2} #3}
+\newcommand{\limiteDer}[3]{\displaystyle \lim_{#1 \rightarrow #2^{+}} #3}
+\newcommand{\limiteIzq}[3]{\displaystyle \lim_{#1 \rightarrow #2^{-}} #3}
+\newcommand{\limiteInf}[3]{\displaystyle \lim_{#1 \rightarrow #2\infty} #3}
+
+
+\newcommand{\angulo}[1]{\SI{#1}{\degree} }
+
+
+
+\newcommand{\vasymptote}[2][]{
+    \draw [red, densely dashed,#1] ({rel axis cs:0,0} -| {axis cs:#2,0}) -- ({rel axis cs:0,1} -| {axis cs:#2,0});
+}
+\newcommand{\hasymptote}[2][]{
+    \draw [blue, densely dashed,#1] ({0,0} -| {axis cs:0,#2}) -- ({1,0} -| {axis cs:0,#2});
+}
+
+
+\pgfplotsset{
+    double y domain/.code 2 args={
+        \pgfmathsetmacro\doubleymin{#1*2}
+        \pgfmathsetmacro\doubleymax{#2*2}
+    },
+    ejes/.style args={#1:#2 #3:#4}{
+        double y domain={#3}{#4},
+        domain=#1:#2,
+        ymin=#3,ymax=#4, restrict y to domain=\doubleymin:\doubleymax,
+        samples=100,
+        enlargelimits=false,
+        axis lines=middle,
+        xtick={#1,...,#2}, ytick={#3,...,#4},
+        xticklabels=\empty, yticklabels=\empty,
+        every axis plot post/.style={
+            black,
+            mark=none,
+            smooth
+        },
+        scale only axis,
+        width=6cm,
+        height=6cm
+    }
+}
+
+
+\def\inputPath{/home/ericlucero/Dropbox/00-academic/UMIP/media/latexDraw/}
+
+
+
+% IntegralDraw
+\pgfdeclarelayer{left}
+\pgfdeclarelayer{right}
+\pgfdeclarelayer{plot}
+\pgfsetlayers{main, right, left, plot}
+\tikzset{
+  pics/riemann sum/.style args={#1:#2:#3}{
+    code={
+      \pgfmathsetmacro{\leftpoint}{#1}
+      \pgfmathsetmacro{\rightpoint}{#2}
+      \pgfmathsetmacro{\movecount}{#3}
+      \pgfmathsetmacro{\step}{(\rightpoint-\leftpoint)/\movecount}
+      \begin{scope}[local bounding box=riemann]
+      \foreach \i [count=\c from 0] in {1,...,\movecount} {
+        \pgfonlayer{left}
+        \path[riemann sum/left sum] (\leftpoint+\c*\step, {temp(\leftpoint+\c*\step)}) rectangle (\leftpoint+\i*\step, 0);
+        \endpgfonlayer
+        \pgfonlayer{right}
+        \path[riemann sum/right sum] (\rightpoint-\c*\step, {temp(\rightpoint-\c*\step)}) rectangle (\rightpoint-\i*\step, 0);
+        \endpgfonlayer
+      }
+      \pgfonlayer{plot}
+      \draw [domain=#1:#2, riemann sum/riemann line] plot (\x, {temp(\x)});
+      \endpgfonlayer
+      \end{scope}
+      \draw[->, riemann sum/riemann axis] ([xshift=-5mm]riemann.west) -- ([xshift=5mm]riemann.east);
+      \draw[->, riemann sum/riemann axis] ([yshift=-5mm]riemann.south) -- ([yshift=5mm]riemann.north);
+    }
+  },
+  riemann sum/.search also=/tikz,
+  riemann sum/.cd,
+  function/.style 2 args={declare function={temp(#1)=#2;}},
+  left sum/.style={draw},
+  right sum/.style={draw},
+  riemann line/.style={},
+  riemann axis/.style={},
+  left/.style={left sum/.append style={#1}},
+  right/.style={right sum/.append style={#1}},
+  line/.style={riemann line/.append style={#1}},
+  axis/.style={riemann axis/.append style={#1}}
+}
+\newcommand{\riemannsum}[2][-1:1:2]{\pic[riemann sum/.cd,#2] {riemann sum=#1};}
+
+\usepgfplotslibrary{fillbetween}
+
+% -----------------------------------------------------
+%                       UNDERLINE                     
+
+\usepackage{soul}
+\newcommand<>{\cul}[2][red]{%                                                                                                                                                                                                                                                                                                                                                                                                            
+  % change underline dimentions: https://tex.stackexchange.com/a/167957/25264                                                                                                                                                                                                                                                                                                                                                            
+  \fontdimen8\textfont3=0.95pt%                                                                                                                                                                                                                                                                                                                                                                                                          
+  % colored underline: https://tex.stackexchange.com/a/9477/25264                                                                                                                                                                                                                                                                                                                                                                        
+  % transparent underline: https://tex.stackexchange.com/a/45601/25264                                                                                                                                                                                                                                                                                                                                                                   
+  % switch between colored and transparent: http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf sections 9.3 and 9.6.1                                                                                                                                                                                                                                                                                   
+  \alt#3%                                                                                                                                                                                                                                                                                                                                                                                                                                
+      {\color{#1}\underline{{\color{black}#2}}\color{black}}%                                                                                                                                                                                                                                                                                                                                                                            
+      {\transparent{0.0}\underline{{\transparent{1.0}#2}}\transparent{1.0}}%                                                                                                                                                                                                                                                                                                                                                             
+}
+% -----------------------------------------------------
+
+\newcommand{\altr}[1]{\textbf{\colorea{colorA}{#1}}}
+
+% -----------------------------------------------------
+%% Metadata
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={Apuntes de clase},    % title
+    pdfauthor={Eric A. Lucero Gonzalez},     % author
+    pdfsubject={Fisica, Matematicas},   % subject of the document
+    pdfcreator={pdftex},   % creator of the document
+    pdfproducer={Texmaker, TexLive, Ubuntu 16.04}, % producer of the document
+    pdfkeywords={Fisica, Matematicas, Physics, Chemistry, Mathemathics, Math, Biology}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=black           % color of external links
+}

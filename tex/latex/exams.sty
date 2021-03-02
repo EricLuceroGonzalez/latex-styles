@@ -1,0 +1,672 @@
+\ProvidesPackage{exams}
+%%%%%%%%% MIKHAIL KLASSEN - RESEARCH DIARY HEADER %%%%%%%%%%%%
+%% @author:  Mikhail Klassen                                %%
+%% @contact: mikhail.klassen@gmail.com                      %%
+%% @revised:    12 / January / 2011                         %%
+%% @license: Creative Commons Share Alike 3.0               %%
+%%           http://creativecommons.org/licenses/by-sa/3.0/ %%
+%%                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{standalone}  % Incluir archivo .tex ignorando preambulo
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{mathexam}%%
+%\usepackage[spanish,USenglish]{babel} % espanol, ingles
+\usepackage[spanish]{babel} % espanol, ingles
+\decimalpoint
+%\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{caption}
+\usepackage[cmyk]{xcolor}
+\usepackage{tabu}
+\usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{siunitx}   % Sistema internacional
+\usepackage{gensymb}
+\usepackage[version=4]{mhchem}
+\usepackage{chemformula}
+\usepackage{elements}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+%\usepackage{mcode}
+\graphicspath{
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/Logos/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/latexDraw/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/latexDraw/tikz/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/latexDraw/parciales/}
+{/home/ericlucero/Downloads/}
+}
+
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage{geometry}
+\geometry{a4paper, portrait, left=27mm,right=27mm, top=22mm, bottom=8mm}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{epsfig}
+\usepackage{framed}
+\usepackage{textcomp}
+\usepackage{color}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[framed,numbered]{mcode}
+\usepackage{tabu}
+\usepackage{tcolorbox}
+\tcbset{colback=violet!25!white,colframe=violet!85!white}
+\tcbuselibrary{theorems}
+\usepackage{tocloft}
+\renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}      % PUNTOS EN EL INDICE
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{colortbl}
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+	
+\usepackage{color, colortbl}
+\usepackage{booktabs}
+\renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}      % PUNTOS EN EL INDICE
+
+\usepackage{booktabs}
+\usepackage[usenames,dvipsnames]{pstricks}
+
+% *************************  TiKz  *************************
+% *************************  TiKz  *************************
+\usepackage{pgfplots,pgfplotstable}
+
+\usepackage{booktabs}
+\usepackage[usenames,dvipsnames]{pstricks}
+% *************************  TiKz  *************************
+% *************************  TiKz  *************************
+\usepackage{pgfplots,pgfplotstable}
+\usepackage{tikz}
+\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur, decorations.markings,patterns,decorations.pathmorphing,fit}
+
+\tcbuselibrary{breakable}
+%\usepackage[type=none]{fgruler}
+%% Para la semiesfera
+\pgfkeys{/tikz/.cd, view angle/.initial=0, view angle/.store in=\picangle}
+\tikzset{
+  horizontal/.style={y={(0,sin(\picangle))}},
+  vertical at/.style={x={([horizontal] #1:1)}, y={(0,cos(\picangle)cm)}},
+  every label/.style={font=\tiny, inner sep=1pt},
+}
+
+\usepackage{bm}
+
+\usepackage{pstricks-add}
+\usepackage{subcaption}
+\usepgfplotslibrary{fillbetween}
+
+\usepackage{mathtools}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{color}
+\definecolor{ultramarine}{RGB}{0,50,150}
+\usepackage{booktabs}
+\usepackage[usenames,dvipsnames]{pstricks}
+\definecolor{darkblue}{RGB}{47,68,117}
+\definecolor{lightblue}{RGB}{25,45,185}
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{moradoUTP}{RGB}{69,27,105}
+\usepackage{titlesec}
+\titleformat{\subsection}[runin]% runin puts it in the same paragraph
+       {\normalfont\bfseries}% formatting commands to apply to the whole heading
+       {\thesubsection}% the label and number
+       {0.5em}% space between label/number and subsection title
+       {}% formatting commands applied just to subsection title
+       [.]% punctuation or other commands following subsection title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\textcolor{red}{ \textit{Optimización I}}}
+\author{Libro:\\ {\small  \fullcite{nocedal} }}
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  BIBLIOGRAPHY  %%%%%%%%%%%%%%%
+%%%%%%%%%%%  BIBLIOGRAPHY  %%%%%%%%%%%%%%%
+%\usepackage{cite}
+\usepackage[backend=bibtex, citestyle=numeric,maxnames=5]{biblatex}
+% \addbibresource{estadisticaBIB.bib}
+
+% \usepackage[backend=bibtex, citestyle=verbose]{biblatex}
+\addbibresource{UMIP-bibliography.bib}
+
+%%%%%%%%%%%  BIBLIOGRAPHY  %%%%%%%%%%%%%%%
+\usepackage{booktabs}
+\usepackage[usenames,dvipsnames]{pstricks}
+\definecolor{darkblue}{RGB}{47,68,117}
+\definecolor{2darkblue}{RGB}{0,28,117}
+\definecolor{lightblue}{RGB}{25,45,185}
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{moradoUTP}{RGB}{69,27,105}
+%\usepackage{hyperref}
+\usepackage[backref=true]{hyperref}
+\hypersetup{
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=lightblue,     % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Notes on use of hyperlinks:
+%% \url{http://www.wikibooks.org}
+%% \href{http://www.wikibooks.org}{wikibooks home}
+%% \href{mailto:email@site.com}{email@site.com}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\parindent{0in}
+\setlength\parskip{0.1in} 
+\setlength\headheight{15pt}
+
+%%%%%%%%%%% HEADER / FOOTER %%%%%%%%%%%
+
+%%%%%%%%%%%% ASTRONOMY %%%%%%%%%%%%%%%%
+\newcommand{\Msun}{M_\odot}
+\newcommand{\Lsun}{L_\odot}
+\newcommand{\Rsun}{R_\odot}
+\newcommand{\Mearth}{M_\oplus}
+\newcommand{\Learth}{L_\oplus}
+\newcommand{\Rearth}{R_\oplus}
+%%%%%%%%%%% MATHEMATICS %%%%%%%%%%%%%%%
+\newcommand{\grad}{\nabla}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\eqnarr}{\begin{eqnarray}}
+\newcommand{\eqnend}{\end{eqnarray}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\fradial}[2]{\phi \left( \norm{x_{#1} - x_{#2}}\right) }     
+\newcommand{\fradialcent}[2]{\phi \left( \norm{x_{#1}^c - x_{#2}^c}\right) }
+\newcommand{\fradialh}[2]{\phi \left( \norm{x_{#1} - x_{#2}^c}\right)}     
+\newcommand{\fradialhx}[2]{\phi_x \left( \norm{x_{#1}^c - x_{#2}^c}_2\right)}  
+\newcommand{\fradialx}[2]{\phi_x \left( \norm{{#1} - {#2}}\right)}  
+%%%%%%%%%%% MATHEMATICS %%%%%%%%%%%%%%%
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corolary}{Corolario}[theorem]
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{prop}[theorem]{Proposición}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{propi}[theorem]{Propiedad}
+\newcommand{\raya}{$\rule{2cm}{0.12mm}$}
+\renewcommand{\vector}[1]{\vec{\bm{#1}}}
+
+
+\newcommand{\ihat}{\boldsymbol{\hat{\imath}}}
+\newcommand{\jhat}{\boldsymbol{\hat{\jmath}}}
+\newcommand{\xhat}{\boldsymbol{\hat{x}}}
+\newcommand{\yhat}{\boldsymbol{\hat{y}}}
+\newcommand{\zhat}{\boldsymbol{\hat{z}}}
+\newcommand{\khat}{\boldsymbol{\hat{k}}}
+\newcommand{\abso}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\hil}[1]{\langle #1 \rangle}
+\newcommand{\parcial}[2]{\dfrac{\partial #1}{\partial #2} }
+\newcommand{\parciald}[2]{\dfrac{\partial^2 #1}{\partial #2^2} }
+\newcommand{\parcialhess}[3]{\dfrac{\partial^2 #1}{\partial #2\partial #3} }
+\newcommand{\deri}[2]{\frac{d #1}{d #2} }
+\newcommand{\derid}[2]{\frac{d^{2} #1}{d #2^{2}} }
+\newcommand{\derit}[2]{\frac{d^{3} #1}{d #2^{3}} }
+\newcommand{\deric}[2]{\frac{d^{4} #1}{d #2^{4}} }
+\renewcommand{\sin}{\sen} 
+\renewcommand{\sinh}{\senh} 
+\newcommand{\colorea}[2]{{\color{#1} #2 }}
+\newcommand{\solucion}{{\large\textbf{\underline{Solución:}}}}
+
+
+\newcommand{\tf}[1][{}]{%
+\fillin[#1][0.25in]%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% NEW ENVIRONMENTS %%%%%%%%%%%%
+\newenvironment{bullets}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\newenvironment{code}{
+\begin{quote}\begin{framed}
+}{\end{framed}\end{quote}}
+% \lstset{language=Matlab}
+
+\renewcommand{\lstlistingname}{Código}
+\lstnewenvironment{matlab}[1][]  
+{  
+ \lstset{#1,language=Matlab}  
+}  
+{  
+}  
+
+\newenvironment{sustitucion}[5]
+{\begin{tabular}{|l l|}
+  \hline
+  $u = #1$ & $dv = #4 dx$ \\[0.75em]
+  $du = #2 \, dx$ & $v = #3$ \\[0.75em] \hline
+\end{tabular}
+\begin{align*}
+  \intertext{Haciendo la sustitucion:}
+  \int u \, dv &= uv -\int v \, du \\
+  \int #1 \, #4 \, dx &= \left(#1\right) \left(#3\right) - \int \left(#3\right) \, #2 \, dx\\
+  #5
+\end{align*}
+}{
+}
+
+% ------------------  LOGO Y UBUCACION -------------------------  
+% ------------------ ------------------ ------------------ 
+%\def\LOGO{%
+%\begin{picture}(0,0)\unitlength=1cm
+%\put (-3,-4) {\includegraphics[width=4cm]{logo_utp_1.eps}}
+%\end{picture}
+%}
+%\newlength{\drop}
+\def\logowidth{7em}
+
+\def\LOGO{%
+\begin{picture}(0,0)\unitlength=1cm
+\put (-2.85,-2.0) {\includegraphics[width=\logowidth]{logo}}
+\end{picture}}
+
+\def\LOGOa{%
+\begin{picture}(0,0)\unitlength=0.7cm
+\put (-7,-1.3) {\includegraphics[width=\logowidth]{logo}}
+\end{picture}}
+
+\def\logo{%
+\begin{picture}(0,0)\unitlength=1cm
+\put (0.5,-1) {\includegraphics[width=\logowidth]{logo}}
+\end{picture}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtcolorbox{mybox2}[2][]{colbacktitle=red!10!white,
+colback=red!2!white,coltitle=red!70!black,
+title={#2},fonttitle=\bfseries,#1}
+
+\newenvironment{myitemize}{%
+\begin{itemize}}{\end{itemize}}
+\tcolorboxenvironment{myitemize}{
+blanker,
+before skip=6pt,after skip=6pt,
+borderline west={1mm}{0pt}{red}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{mybox}[3][]{colback=#3!5!white,colframe=#3!75!black,fonttitle=\bfseries,colbacktitle=red!85!black,title=#2,#1}
+\newtcolorbox{myproblem}[2][]{colframe=red!75!green,colback=red!5,coltitle=black,title={#2},fonttitle=\bfseries,#1}
+
+
+% %\odroppedatright
+% %\pointsinrightmargin
+
+% %\pointsinmargin
+% \pointpoints{pto}{pts}
+% \marginpointname{ \colorea{cyan}{\points}}
+
+% \bonuspointpoints{punto extra}{puntos extra}
+% \chqword{Pregunta}
+% \chpgword{Página}
+% \chpword{Puntos}
+% \chbpword{Puntos extra}
+% \chsword{Puntos obtenidos}
+% \chtword{Total}
+% %\usepackage{answers}
+
+%%%  IMPRIMIR RESPUESTAS
+%\printanswers
+
+\usepackage{url}
+\usepackage{endnotes}
+
+
+\def\enotesize{\normalsize} 
+\def\makeenmark{\relax}
+\def\notesname{Answers}
+\def\answer#1{\endnotetext{\vspace*{1ex}\begin{solution}#1\end{solution}}}
+\def\theanswers{\theendnotes \medskip}
+
+% \renewcommand{\solutiontitle}{\noindent\textbf{Solución}\par\noindent}
+
+
+%% Metadata
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={EricLucero-ExamenParcial},    % title
+    pdfauthor={Eric A. Lucero Gonzalez},     % author
+    pdfsubject={Fisica, Quimica, Matematicas, Biologia},   % subject of the document
+    pdfcreator={pdftex},   % creator of the document
+    pdfproducer={Texmaker, TexLive, Ubuntu 16.04}, % producer of the document
+    pdfkeywords={Fisica, Quimica, Matematicas, Biologia, Physics, Chemistry, Mathemathics, Math, Biology}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=black           % color of external links
+}
+
+
+\def\kmH{km/h}
+\def\mss{m/s^2}
+\def\ms{m/s}
+
+\newcommand{\dx}{\hspace{2pt}dx}
+\newcommand{\dy}{\hspace{2pt}dy}
+\newcommand{\du}{\hspace{2pt}du}
+\newcommand{\dydx}{\dfrac{dy}{dx}}
+\newcommand{\dxdy}{\dfrac{dx}{dy}}
+\newcommand{\dydt}{\dfrac{dy}{dt}}
+\newcommand{\dxdt}{\dfrac{dx}{dt}}
+
+\newcommand{\posicion}[1]{  \SI{#1}{m}}
+\newcommand{\tiempo}[1]{  \SI{#1}{s}}
+\newcommand{\velocidad}[1]{ \SI{#1}{m/s}}
+\newcommand{\aceleracion}[1]{\SI{#1}{m/s^2}}
+
+
+\newcommand{\encabezado}{
+		\LOGO \scshape \small UNIVERSIDAD MARÍTIMA INTERNACIONAL DE PANAMÁ 
+		\\[0.5em] \textsc{\materia}
+		\\[0.5em]
+		** \textsc{\colorea{cyan}{\tema}} **\\[1.4em] \hrule
+}
+
+\newcommand{\encabezadoSecond}{
+  \footnotesize
+		\LOGOa \scshape UNIVERSIDAD MARÍTIMA INTERNACIONAL DE PANAMÁ 
+		% \\[0.5em] \textsc{\materia}
+		\\[0.5em]
+		** \textsc{\colorea{cyan}{\tema}} **\\[1.5em] \hrule
+}
+\newcommand{\thePageBreak}{
+  \pagebreak
+  \begin{center}
+      \vspace{-1em}
+      \encabezadoSecond
+  \end{center}
+}
+
+\newcommand{\Datos}{
+		\tcbset{width=\textwidth,coltitle=black,colback=cyan!5!white,colframe=cyan!85!white}
+		\begin{tcolorbox}%[title={\textbf{Presentado por:}}]
+		\begin{tabular}{l p{5cm} c l p{5cm} c}
+		 Apellido: & \rule{4cm}{0.4pt} & & Nombre: & \rule{4cm}{0.4pt} \\[5pt]
+		 	Fecha: & \rule{4cm}{0.4pt} & & Grupo/Facultad:   & \rule{2cm}{0.4pt}/\rule{2cm}{0.4pt} 
+		\end{tabular}
+		\end{tcolorbox}
+}
+
+\newcommand{\cyanColor}[1]{\colorea{cyan!90!black}{\textbf{#1}}}
+
+\newtcolorbox{mybox3}[2][]{
+  colbacktitle=magenta,
+  colback=magenta!5!white,
+  coltitle=magenta,
+  title={#2},
+  fonttitle=\bfseries,#1}
+
+\newcommand{\instrucciones}{
+		\begin{mybox3}[detach title,before upper={\tcbtitle \\[4pt]}]{INSTRUCCIONES}
+    \scriptsize
+    \begin{enumerate}[label=\roman*]
+      \item Resuelva los siguientes problemas de forma \textbf{ordenada, detallada y clara}.
+      \item No es necesario imprimir esta pagina. Sin embargo todas sus paginas deben estar indentificadas.
+      \item Consiga paso a paso la respuesta de cada uno, y \textbf{encierre cada respuesta final} en un \colorea{red!70!black}{\boxed{ \hspace{1em} cuadro  \hspace{1em}}}
+      \item \asunto tiene \cyanColor{\numquestions\ problemas}, \cyanColor{\numpages\ pagina}, y un total de \cyanColor{\numpoints\ puntos}.
+    \end{enumerate}
+    
+
+		\end{mybox3}
+}
+
+\newcommand{\instruccionesB}{
+		\begin{mybox2}[detach title,before upper={\tcbtitle \\[4pt]}]{INSTRUCCIONES}
+		\small
+    Resuelva los siguientes problemas de forma \textbf{ordenada, detallada y clara}. Resuelva la cantidad que le sea especificada en cada seccion. Consiga 		paso a paso la respuesta de cada uno, y \textbf{encierre cada respuesta final} en un 				\colorea{red!70!black}{\boxed{ \hspace{1em} cuadro  \hspace{1em}}}\\[0.6em]
+    % \vspace{-1em}
+% \begin{minipage}{0.57\textwidth}
+    Resolver al menos \textbf{dos problemas} en la \textbf{primera parte}. En el resto, solo un problema de cada seccion.\\
+    Debera tomar en cuenta:
+ \begin{multicols}{2}
+  \begin{itemize}
+    \item Plantear correctamente las sustituiciones.
+    \item Encerrar en un cuadro las sustituiciones.
+    \item Aplicar correctamente las formulas.
+    \item Graficar las funciones de las partes \textbf{VI} y \textbf{V}.
+    \columnbreak
+    \item Llegar a la respuesta de forma coherente.
+    \item Ser ordenado y claro en cada uno de los pasos.
+    \item \textbf{Encerrar la respuesta final} en un 				\boxed{ \hspace{1em} cuadro  \hspace{1em}}.
+  \end{itemize}
+ \end{multicols}
+    % \vspace{1em}
+    % \end{minipage}
+		\asunto tiene \cyanColor{10 problemas}, \cyanColor{\numpages\ paginas}, y un total de \cyanColor{100 puntos}.
+		\end{mybox2}
+}
+
+\newcommand{\instruccionesEscogerMejor}{
+		\begin{mybox2}[detach title,before upper={\tcbtitle \\[4pt]}]{INSTRUCCIONES}
+    \footnotesize
+    Analice las siguientes preguntas detenidamente y escoja la respuesta que mejor responda la pregunta en cuestion.\\
+    Selecciones su respuesta encerrando la letra que contenga la mejor opcion.\\
+		\asunto tiene \cyanColor{\numquestions\ problemas}, \cyanColor{\numpages\ paginas}, y un total de \cyanColor{\numpoints\ puntos}.
+		\end{mybox2}
+}
+
+
+\newcommand{\DatosDiagn}{
+		\tcbset{width=\textwidth,coltitle=black,colback=cyan!5!white,colframe=cyan!85!white}
+		\begin{tcolorbox}%[title={\textbf{Presentado por:}}]
+		\begin{tabular}{l p{1cm} c l p{5cm}}
+		 Edad: & \rule{1cm}{0.4pt} & & Colegio: & \rule{4cm}{0.4pt}  \\[3pt]
+		 Ha dado la materia en otra ocasion: & Si: \rule{0.4cm}{0.4pt} No: \rule{0.4cm}{0.4pt} & & Nota de Matematica 3:   & \rule{4cm}{0.4pt}
+		\end{tabular}
+		\end{tcolorbox}
+}
+
+\newcommand{\instruccionesEXAMENFINAL}{
+\vspace{-0.66em}
+		\begin{mybox2}[detach title,before upper={\tcbtitle \\[4pt]}]{INSTRUCCIONES}
+		\footnotesize
+Consteste las siguientes preguntas y resuelva los siguientes problemas con claridad. De no saber la respuesta pase al siguiente problema.
+\end{mybox2}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{2} 
+\renewcommand{\thesubsection}{\Roman{subsection}}
+
+\pagestyle{headandfoot}
+\firstpagefooter{UMIP - 2021}{\Asunto}{\thepage}
+\runningfooter{\materia}{\textsc{\Asunto}}{\thepage}
+% \firstpagefooter{\materia}{\textsc{\tema}}{\thepage}
+% \runningfooter{\materia}{\textsc{\tema}}{\thepage}
+
+\definecolor{azulejemplo}{cmyk}{0.90,0.60,0,0}
+\definecolor{backejercicio}{cmyk}{0,0.60,0.9,0}
+\definecolor{frameejemplo}{cmyk}{0.95,0.60,0,0}
+\definecolor{backejemplo}{cmyk}{0.20,0.10,0,0}
+
+%%%%%%%%%%%%%%%%%%%%% BEAMER CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%% 
+\definecolor{colorA}{RGB}{6, 85, 148} % BLUE      #065594 
+\definecolor{colorB}{RGB}{194, 127, 42} % GOLDEN     #C27F2A
+\definecolor{colorC}{RGB}{241, 89, 42} % ORANGE      #F1592A
+\definecolor{colorD}{RGB}{29, 143, 155} % AQUA       #1D8F9B
+\definecolor{colorE}{RGB}{112, 152, 200} % LIGHTBLUE #7098C8
+\definecolor{colorF}{RGB}{167, 169, 172} % GRAY      #A7A9AC
+
+\definecolor{myPurple}{RGB}{125, 100, 255} % PURPLE
+\definecolor{myGreen}{RGB}{87, 255, 179}% GREEN
+\definecolor{myPeach}{RGB}{255, 143, 125}% PEACH
+\definecolor{myYellow}{RGB}{255, 233, 74} % YELLOW
+\definecolor{myDarkPurple}{RGB}{73, 52, 179} % BACK PURPLE
+
+% ACADEMO PALETTE
+\definecolor{primary}{HTML}{7D64FF}
+\definecolor{secondary}{HTML}{FFE94A}
+\definecolor{tertiary}{HTML}{FF8F7D}
+\definecolor{secondaryB}{HTML}{57FFB3}
+\definecolor{primaryB}{HTML}{421CFF}
+
+\definecolor{aquaA}{HTML}{3FA8B0}% 
+\definecolor{aquaB}{HTML}{57FAFA}
+\definecolor{aquaC}{HTML}{80C4C4}
+\definecolor{aquaD}{HTML}{E9F5F5}
+\definecolor{aquaE}{HTML}{2B7A7A}
+
+\definecolor{purpleA}{HTML}{3C46B0}
+\definecolor{purpleB}{HTML}{5664FC}
+\definecolor{purpleC}{HTML}{6F77C7}
+\definecolor{purpleD}{HTML}{BFC4F2}
+\definecolor{purpleE}{HTML}{2C3380}
+
+\definecolor{orangeA}{HTML}{703E23}
+\definecolor{orangeB}{HTML}{F2B594}
+\definecolor{orangeC}{HTML}{F0844A}
+\definecolor{orangeD}{HTML}{C25F2A}
+\definecolor{orangeE}{HTML}{BD683A}
+
+\definecolor{yellowA}{HTML}{F5FF3D}
+\definecolor{yellowB}{HTML}{ACB32B}
+\definecolor{yellowC}{HTML}{BABF50}
+\definecolor{yellowD}{HTML}{7D821F}
+\definecolor{yellowE}{HTML}{3F4205}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{ejemplo}
+
+\newcommand{\iintA}[6]{\displaystyle   \int_{#1}^{#2} \int_{#3}^{#4} #5 \; #6}
+\newcommand{\iiintA}[8]{\displaystyle   \int_{#1}^{#2} \int_{#3}^{#4} \int_{#5}
+	^{#6} #7 \; #8}
+
+\newcommand{\aZero}[2]{\displaystyle \dfrac{1}{#2} \int_{-#2}^{#2} #1 \; dx}
+\newcommand{\an}[2]{\displaystyle \dfrac{1}{#2} \int_{-#2}^{#2} #1 \, \cos\left(\frac{n\pi x}{#2}\right) \; dx}
+\newcommand{\bn}[2]{\displaystyle \dfrac{1}{#2} \int_{-#2}^{#2} #1 \, \sin\left(\frac{n\pi x}{#2}\right) \; dx}
+
+\newcommand{\respuesta}[3]{
+  \colorea{#1}{
+    \begin{center}
+      \fbox{
+          \begin{minipage}[t]{#2\textwidth}
+              #3
+          \end{minipage}
+      }
+  \end{center}
+  }
+
+}
+
+\newtcolorbox[use counter=ejemplo]{ejemplo}[1][]{
+  colframe=frameejemplo,
+  colback=backejemplo,
+  coltitle=white!65,
+  title={Ejemplo \thetcbcounter},
+  fonttitle=\bfseries
+  }
+  \newtcolorbox{tcbOne}{
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!30,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,    
+  }
+%   \tcbset{
+%     frame code={}
+%     center title,
+%     left=0pt,
+%     right=0pt,
+%     top=0pt,
+%     bottom=0pt,
+%     colback=gray!70,
+%     colframe=white,
+%     width=\dimexpr\textwidth\relax,
+%     enlarge left by=0mm,
+%     boxsep=5pt,
+%     arc=0pt,outer arc=0pt,
+% }
+
+% \newcommand{\figEmpty}[#1]{
+%     \begin{center}
+%         \boxed{
+%         \begin{tikzpicture}[scale=1]
+%         \def\xmax{#1}, \def\xmin{-#1},
+%         \def\ymax{#1}, \def\ymin{-#1},
+%             \begin{axis}[
+%                 axis lines = middle,
+%                 grid=major,
+%                 scaled ticks=true,
+%         xmax=\xmax.3,xmin=\xmin.2,
+%         ymin=\ymin.3,ymax=\ymax.9,
+%         xtick={\xmin,...,\xmax},
+%         ytick={\ymin,...,\ymax},
+%              yticklabels={,,}, xticklabels={,,}
+%                 ]
+%             \end{axis}
+%         \end{tikzpicture}
+%             }
+%         \end{center}
+% }
+\newenvironment{soluciones}[2]
+{
+  \begin{center}
+    \vspace{-0.5em}
+    \rule{0.35\textwidth}{2pt}
+    \framebox{\textsc{solucion}}
+    \rule{0.35\textwidth}{2pt}
+    \fbox{
+        \begin{minipage}{#1\textwidth}
+          \colorea{red}{
+          #2
+          }
+        \end{minipage}
+    }
+\end{center}
+}
+{}
+
+\newenvironment{solucionesCol}[3]
+{
+  \begin{center}
+    \vspace{-0.5em}
+    \rule{#1\textwidth}{2pt}
+    \framebox{\textsc{solucion}}
+    \rule{#1\textwidth}{2pt}
+    \fbox{
+        \begin{minipage}{#2\textwidth}
+          #3
+        \end{minipage}
+    }
+\end{center}
+}
+{}
+\def\linker{/home/ericlucero/Dropbox/00-academic/UMIP/media/latexDraw/parciales/}
+
+\newcounter{examPart}
+\newcommand{\angulo}[1]{\SI{#1}{\degree} }
