@@ -22,8 +22,9 @@ latex
 00-limites.tex
 beamerAlternative.sty
 ericlucero-alondra.sty
-ericlucero-beamer.sty
+ericluceroBeamer.sty
 ericlucero-poesia.sty
 exams.sty
+plazoFacil-Beamer.sty
 presentation.sty
 test.sty

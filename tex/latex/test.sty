@@ -40,9 +40,12 @@
 \usepackage{epstopdf}
 \usepackage{smartdiagram}
 %\usepackage{mcode}
-\graphicspath{{/home/ericlucero/Dropbox/00-academic/UMIP/media/}
+\graphicspath{
+  {/home/ericlucero/Dropbox/00-academic/UMIP/media/}
 {/home/ericlucero/Dropbox/00-academic/UMIP/media/Logos/}
-{/home/ericlucero/Dropbox/00-academic/UMIP/media/identity/}}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/identity/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/mat3/}
+}
 
 \usepackage[para,online,flushleft]{threeparttable}
 %[hmargin=2cm,vmargin=2.5cm]
@@ -55,7 +58,6 @@ bottom=33mm
 }
 \usepackage{multirow}
 \usepackage{multicol}
-\usepackage{wrapfig}
 \usepackage{listings}
 \usepackage{epsfig}
 \usepackage{framed}
@@ -319,20 +321,20 @@ borderline west={1mm}{0pt}{red}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Metadata
-\usepackage{hyperref}
-\hypersetup{
-    pdftitle={Apuntes de clase},    % title
-    pdfauthor={Eric A. Lucero Gonzalez},     % author
-    pdfsubject={Fisica, Matematicas},   % subject of the document
-    pdfcreator={pdftex},   % creator of the document
-    pdfproducer={Texmaker, TexLive, Ubuntu 16.04}, % producer of the document
-    pdfkeywords={Fisica, Matematicas, Physics, Chemistry, Mathemathics, Math, Biology}, % list of keywords
-    colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=black,          % color of internal links
-    citecolor=black,        % color of links to bibliography
-    filecolor=black,      % color of file links
-    urlcolor=black           % color of external links
-}
+% \usepackage{hyperref}
+% \hypersetup{
+%     pdftitle={Apuntes de clase},    % title
+%     pdfauthor={Eric A. Lucero Gonzalez},     % author
+%     pdfsubject={Fisica, Matematicas},   % subject of the document
+%     pdfcreator={pdftex},   % creator of the document
+%     pdfproducer={Texmaker, TexLive, Ubuntu 16.04}, % producer of the document
+%     pdfkeywords={Fisica, Matematicas, Physics, Chemistry, Mathemathics, Math, Biology}, % list of keywords
+%     colorlinks=true,       % false: boxed links; true: colored links
+%     linkcolor=black,          % color of internal links
+%     citecolor=black,        % color of links to bibliography
+%     filecolor=black,      % color of file links
+%     urlcolor=black           % color of external links
+% }
 
 
 \newcommand{\dx}{\hspace{2pt}dx}
@@ -590,6 +592,13 @@ title={\large #2},fonttitle=\bfseries, #1}
 \definecolor{colorD}{RGB}{255, 233, 74} % YELLOW
 \definecolor{colorE}{RGB}{73, 52, 179} % BACK PURPLE
 
+
+\definecolor{myPurple}{RGB}{125, 100, 255} % PURPLE
+\definecolor{myGreen}{RGB}{87, 255, 179}% GREEN
+\definecolor{myPeach}{RGB}{255, 143, 125}% PEACH
+\definecolor{myYellow}{RGB}{255, 233, 74} % YELLOW
+\definecolor{myDarkPurple}{RGB}{73, 52, 179} % BACK PURPLE
+
 % ACADEMO PALETTE
 \definecolor{primary}{HTML}{7D64FF}
 \definecolor{secondary}{HTML}{FFE94A}
@@ -677,7 +686,7 @@ title={\large #2},fonttitle=\bfseries, #1}
 \newcommand{\altr}[1]{\textbf{\colorea{primaryB}{#1}}}
 \def\openQuestion{\textbf{\Large ¿}}
 \def\closeQuestion{\textbf{\Large ?}}
-
+\newcommand{\grotesk}{\fontfamily{ugq}\selectfont}
 % mkdir contents && cd contents &&
 % touch 00-welcome.tex &&
 % touch 01-presentation.tex &&

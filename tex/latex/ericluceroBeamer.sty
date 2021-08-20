@@ -22,16 +22,14 @@
 \usepackage{pgfplots,pgfplotstable}
 \usepackage{enumitem}
 \usepackage{smartdiagram}
+% \usepackage{wasysym}
+\usepackage{fontawesome5}
+\usepackage{textcomp}
 \usetikzlibrary{mindmap,trees,backgrounds,shapes.geometric, arrows,shadings,angles, quotes}
 \usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur, decorations.markings,patterns,decorations.pathmorphing, shapes.arrows,matrix,positioning}
 \usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur,decorations.pathmorphing}
 \usepackage{tkz-euclide}
 % \usetkzobj{all}
-	\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
-	\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
-	\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
-	\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
-	\tikzstyle{arrow} = [thick,->,>=stealth]
 
 
 
@@ -49,31 +47,35 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{color, colortbl}
-\usepackage{gensymb}
+% \usepackage{gensymb}
 %\usepackage{footnote}
 \usepackage{caption}
 \usepackage{threeparttable}
 \usepackage{epstopdf}
 \usepackage{epsfig}
+\usepackage{csquotes}
 
 %   Direccion del archivo de imagenes:
 %  \graphicspath{{/home/ericlucero/Dropbox/00Maestria-ERIC/Imagenes/PresentacionDefensa/}}
 \graphicspath{
-{/home/ericlucero/Dropbox/00Maestria-ERIC/Imagenes/Tesis/} 
-{/home/eric/Dropbox/00Maestria-ERIC/Imagenes/} 
-{/home/eric/Dropbox/00Maestria-ERIC/Imagenes/PresentacionDefensa/} 
-{/home/ericlucero/Dropbox/00Maestria-ERIC/Imagenes/Tesis_Resultados/} 
 {/home/ericlucero/Dropbox/00-academic/UMIP/Fisica/Fisica1/Presentacion/imagenes/}
-{/home/ericlucero/Dropbox/00-academic/UMIP/media/} 
-{/home/ericlucero/Dropbox/00-academic/CursosGMP/Guias/Logos/}
-{/home/ericlucero/Dropbox/00-academic/CursosGMP/GMPGuias/Logos/} 
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/fisica1/medicion/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/fisica1/vectores/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/fisica1/cinematica/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/Logos/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/identity/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/geometria/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/mat0/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/mat3/}
+{/home/ericlucero/Dropbox/00-academic/UMIP/media/}
+{/home/ericlucero/Dropbox/Latex/tikzDraw/} 
 {/home/ericlucero/Dropbox/00-academic/UMIP/Graficas/}
 {/home/ericlucero/Dropbox/Python_things/media/}
 {/home/ericlucero/Downloads/}
 {/home/ericlucero/Dropbox/Latex/tikzDraw/latexDraw//}
-{/home/ericlucero/Dropbox/00-academic/UMIP/media/fisica2/}
-{/home/ericlucero/Dropbox/00-academic/UMIP/media/Logos/}
-{/home/ericlucero/Dropbox/00-academic/UMIP/media/identity/}
+{/home/ericlucero/Dropbox/Latex/tikzDraw/fisica2/}
+{/home/ericlucero/Dropbox/Latex/tikzDraw/Logos/}
+{/home/ericlucero/Dropbox/Latex/tikzDraw/identity/}
 {/home/ericlucero/Dropbox/Latex/tikzDraw/latexDraw/tikz/}
 } 
 
@@ -131,7 +133,9 @@
 
 \newcommand{\laplaciano}[1]{\dfrac{\partial^2 #1}{\partial x^2} + \dfrac{\partial^2 #1}{\partial y^2} }
 \newcommand{\laplacianor}[1]{\dfrac{\partial^2 #1}{\partial r_x^2} + \dfrac{\partial^2 #1}{\partial r_y^2} }
-
+\newcommand{\fullvector}[3]{\left[#1 \cos \left(#2\right)\xhat + #1 \sin \left(#2\right)\yhat\right] \, #3}
+\newcommand{\xCompo}[2]{#1 \cos \left(#2\right)}
+\newcommand{\yCompo}[2]{#1 \sin \left(#2\right)}
 %\renewcommand{\lstlistingname}{Código}
 %
 %\lstnewenvironment{matlab}[1][]  
@@ -150,6 +154,7 @@
 \definecolor{colorE}{RGB}{112, 152, 200} % LIGHTBLUE #7098C8
 \definecolor{colorF}{RGB}{167, 169, 172} % GRAY      #A7A9AC
 
+\definecolor{linkblue}{RGB}{1, 186, 239}
 \definecolor{myPurple}{RGB}{125, 100, 255} % PURPLE
 \definecolor{myGreen}{RGB}{87, 255, 179}% GREEN
 \definecolor{myPeach}{RGB}{255, 143, 125}% PEACH
@@ -181,11 +186,11 @@
 \definecolor{orangeD}{HTML}{C25F2A}
 \definecolor{orangeE}{HTML}{BD683A}
 
-\definecolor{yellowA}{HTML}{F5FF3D}
-\definecolor{yellowB}{HTML}{ACB32B}
-\definecolor{yellowC}{HTML}{BABF50}
+\definecolor{yellowA}{HTML}{FFCC33}
+\definecolor{yellowB}{HTML}{FFF5D6}
+\definecolor{yellowC}{HTML}{04E762}
 \definecolor{yellowD}{HTML}{7D821F}
-\definecolor{yellowE}{HTML}{3F4205}
+\definecolor{yellowE}{HTML}{00A1E4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -197,7 +202,8 @@
 	\useoutertheme[left]{sidebar}
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
-	\setbeamerfont{footnote}{size=\tiny}
+  \setbeamerfont{footnote}{size=\tiny}
+  % \setbeamerfont{frametitle}{series=\bfseries}
 	\setbeamercolor{footnote mark}{fg=colorC}
 	% ----------- ---  Colors  --- ----------- 
 	\setbeamercolor{title}{fg=colorA,bg=colorE}  
@@ -486,7 +492,7 @@
 	boxsep=1pt,
 	before upper={\vphantom{dlg}},
   colframe=colorC,
-  fontupper=\bfseries,
+  fontupper=\fontfamily{ugq}\selectfont \bfseries,
 	coltext=colorA,
 	colback=colorC!20!white,
 	overlay={
@@ -519,8 +525,9 @@
 	top=4pt,
 	left=1cm,
 	colframe=primary,
-	coltext=purpleB,
-	colback=yellowA,
+  coltext=colorA,
+  fontupper=\fontfamily{ugq}\selectfont,
+	colback=colorC!10!white,
 	overlay={
 		\begin{tcbclipinterior}
 		\fill[colorC] (frame.south west) rectangle node[text=white,font=\bfseries\Huge] {!} ([xshift=8mm]frame.north west);
@@ -566,6 +573,25 @@ overlay last={\draw[red,line width=9pt] ([xshift=-0.5pt]frame.north east)
 --([xshift=-0.5pt]frame.south east)--(frame.south west);},%
 }
 
+\newtcolorbox[]{ec}[1]{%
+empty,title={#1 },
+attach boxed title to top left,boxed title style={empty,size=minimal,
+toprule=2pt,top=4pt,
+overlay={\draw[colorC,line width=5pt]([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
+coltitle=colorC,fonttitle=\Large\bfseries,before=\par\medskip\noindent,parbox=false,
+boxsep=6pt,left=0pt,right=3mm,top=4pt,breakable,pad at break*=0mm,vfill before first,
+overlay unbroken={\draw[colorA,line width=1pt]
+([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+overlay first={\draw[red,line width=6pt]
+([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-3pt]title.north-|frame.east)
+--([xshift=-0.5pt]frame.south east); },
+overlay middle={\draw[blue,line width=5pt] ([xshift=-0.5pt]frame.north east)
+--([xshift=-0.5pt]frame.south east); },
+overlay last={\draw[red,line width=9pt] ([xshift=-0.5pt]frame.north east)
+--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
+}
+
 \newtcolorbox{lecturas}[1][]{
 	colframe=white,
   colback=colorC!25!white,
@@ -581,13 +607,59 @@ overlay last={\draw[red,line width=9pt] ([xshift=-0.5pt]frame.north east)
 	title={#2},
 	fonttitle=\bfseries,#1
   }
+\newcounter{videocounter}
+  \newtcolorbox[use counter=videocounter]{avideo}{
+  colframe=black,
+  colbacktitle=black,
+	colback=gray!4!white,
+	coltitle=white,
+  title={\grotesk \colorea{red}{\faYoutube} Video \thetcbcounter},
+  sharp corners,
+  tile,flip title={sharp corners},
+  % detach title,
+  % before upper={\tcbtitle \newline},
+  % fonttitle=\grotesk \colorea{red}{\faYoutube} Video,
+  }
+
+  \newtcolorbox{alink}{
+    colframe=black,
+    colbacktitle=linkblue,
+    colback=gray!10!white,
+    coltitle=white,
+    title={\grotesk \colorea{white}{\faAt} Link},
+    sharp corners,
+    tile,flip title={sharp corners},
+    % detach title,
+    % before upper={\tcbtitle \newline},
+    % fonttitle=\grotesk \colorea{red}{\faYoutube} Video,
+    }
+
+    \newtcolorbox{aneq}[2][]{
+      colframe=myPurple,
+      colback=myPeach!10!white,
+      coltitle=myPurple,
+      sharp corners,
+      % tile,flip title={sharp corners},
+      detach title,before upper={\tcbtitle\quad},
+      % attach title to upper={\ ---\},
+      title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries,#1
+      }
   
 \newtcolorbox{mybox}[2][]{
 colbacktitle=myPurple!60!white,
 colframe=myPurple,
 colback=myPurple!10!white,
 coltitle=myDarkPurple,
-title={#2},fonttitle=\bfseries,#1}
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries,#1}
+
+\newtcolorbox{mybox1}[2][]{
+  toptitle=0.6mm,
+  boxsep=2mm,
+  colbacktitle=yellowA,
+  coltitle=yellowE,
+  colback=yellowB,
+  colframe=yellowE,
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
 
 \newtcolorbox{mybox2}[2][]{
   toptitle=0.6mm,
@@ -597,7 +669,7 @@ title={#2},fonttitle=\bfseries,#1}
   colback=colorC!20!white,
   coltext=colorA,
   colframe=colorC,
-title={\large #2},fonttitle=\bfseries, #1}
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
 
 \newtcolorbox{mybox3}[2][]{
   toptitle=0.6mm,
@@ -606,7 +678,7 @@ title={\large #2},fonttitle=\bfseries, #1}
   coltitle=colorC,
   colback=colorC!20!white,
   colframe=colorC,
-title={\large #2},fonttitle=\bfseries, #1}
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
 
 \newtcolorbox{mybox4}[2][]{
   toptitle=0.6mm,
@@ -615,7 +687,7 @@ title={\large #2},fonttitle=\bfseries, #1}
   coltitle=purpleE,
   colback=purpleD,
   colframe=purpleE,
-title={\large #2},fonttitle=\bfseries, #1}
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
 
 %%\newcounter{saveenumi}
 %\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
@@ -650,12 +722,12 @@ title={\large #2},fonttitle=\bfseries, #1}
   }
 
 \newtcolorbox[use counter=ejemplo]{ejemplo}[1][]{
-	colframe=purpleD,
+	colframe=colorC!70!white,
 	colback=purpleA!20!white,
   coltitle=purpleE,
   sharp corners,
     breakable,
-	title={Ejemplo \thetcbcounter},
+	title={\grotesk Ejemplo \thetcbcounter},
 	fonttitle=\bfseries
   }
   
@@ -790,7 +862,7 @@ title={\large #2},fonttitle=\bfseries, #1}
 }
 
 
-\def\inputPath{/home/ericlucero/Dropbox/Latex/tikzDraw/latexDraw//}
+% \def\inputPath{/home/ericlucero/Dropbox/Latex/tikzDraw/latexDraw//}
 
 
 
@@ -857,8 +929,9 @@ title={\large #2},fonttitle=\bfseries, #1}
 }
 % -----------------------------------------------------
 
-\newcommand{\altr}[1]{\textbf{\colorea{colorA}{#1}}}
-
+\newcommand{\altr}[1]{\textbf{\colorea{colorA}{\grotesk #1}}}
+\newcommand{\bltr}[1]{\textbf{\colorea{colorC}{\grotesk #1}}}
+\newcommand{\gltr}[1]{\textbf{\colorea{gray!40}{\text{\small #1}}}}
 % -----------------------------------------------------
 %% Metadata
 \usepackage{hyperref}
@@ -873,7 +946,7 @@ title={\large #2},fonttitle=\bfseries, #1}
     linkcolor=black,          % color of internal links
     citecolor=black,        % color of links to bibliography
     filecolor=black,      % color of file links
-    urlcolor=black           % color of external links
+    urlcolor=colorA           % color of external links
 }
 
 % mkdir contents && cd contents &&
@@ -885,3 +958,53 @@ title={\large #2},fonttitle=\bfseries, #1}
 % touch 05-methodology.tex &&
 % touch 06-evaluation.tex &&
 % touch 07-biblio.tex &&
+
+%%%%%%%%%%%%%%%%%   BEAMER FONT FAMILY   %%%%%%%%%%%%%%%%%
+% \usepackage[default]{comfortaa}  % comfortaa
+\usepackage[default]{lato}  % lato
+% Grotesk font
+\newcommand{\grotesk}{\fontfamily{ugq}\selectfont}
+\usepackage[T1]{fontenc}
+%%%%%%%%%%%%%%%%%   BEAMER FONT FAMILY   %%%%%%%%%%%%%%%%%
+\newcounter{problemCounter}
+
+% \usepgfplotslibrary{external}
+% \tikzexternalize
+% \tikzsetexternalprefix{figtemp/}
+
+\newcounter{initCounter}
+\newcommand{\finishItem}{\setcounter{initCounter}{\theenumi}}
+\newcommand{\initItem}{\setcounter{enumi}{\theinitCounter}}
+
+
+% TIKZ STYLES
+% -- Nodes
+\tikzstyle{infonode}=[font=\large,inner sep=10pt,rounded corners=3pt,above right,draw,align=center,fill=myGreen!50]
+\tikzstyle{arrownode}=[-Triangle,line width=0.7mm, color=myPurple]
+\tikzstyle{arrowRed}=[-Triangle,line width=0.7mm, color=red]
+\tikzstyle{arrowOrange}=[-Triangle,line width=0.7mm, color=colorC]
+\tikzstyle{arrowBlue}=[-Triangle,line width=0.7mm, color=blue]
+\tikzstyle{arrowBlack}=[-Triangle,line width=0.7mm, color=black]
+\tikzstyle{arrowGreen}=[-Triangle,line width=0.7mm, color=myGreen]
+\tikzstyle{arrowSmall}=[-Triangle,line width=0.5mm, color=myGreen]
+
+\tikzstyle{arrowthin}=[-Triangle,line width=0.5mm, color=colorC]
+\tikzstyle{arrowFake}=[-Triangle,line width=0.5mm, color=colorC, opacity=0.3]
+
+% -- Free fall
+\tikzstyle{transition}=[rectangle,draw=black!50,fill=black!20,thick]
+\tikzstyle{wall}=[ultra thick, draw=red!60!black, fill=red ,pattern=bricks, pattern color=white]
+\tikzstyle{wallfill}=[ultra thick, draw=red!60!black, fill=red!40]
+\tikzstyle{ballStyle}=[fill=blue, draw=none]
+\tikzstyle{ballFake}=[fill=blue, draw=none, opacity=0.25]
+
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\tikzstyle{support} = [pattern = north west lines]
+\tikzstyle{axisArrow} = [dashed,-Triangle, thick, black!30!white]

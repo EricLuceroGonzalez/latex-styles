@@ -14,11 +14,12 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{amstext}
 %\usepackage{mathexam}%%
-%\usepackage[spanish,USenglish]{babel} % espanol, ingles
+% \usepackage{microtype}
 \usepackage[spanish]{babel} % espanol, ingles
 \decimalpoint
-%\usepackage[spanish]{babel}
+\usepackage[spanish]{babel}
 \usepackage{multicol}
 \usepackage{color}
 \usepackage{caption}
@@ -78,21 +79,14 @@
 \usepackage{booktabs}
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}      % PUNTOS EN EL INDICE
 
-\usepackage{booktabs}
-\usepackage[usenames,dvipsnames]{pstricks}
 
-% *************************  TiKz  *************************
-% *************************  TiKz  *************************
-\usepackage{pgfplots,pgfplotstable}
-
-\usepackage{booktabs}
 \usepackage[usenames,dvipsnames]{pstricks}
 % *************************  TiKz  *************************
 % *************************  TiKz  *************************
 \usepackage{pgfplots,pgfplotstable}
 \usepackage{tikz}
-\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur, decorations.markings,patterns,decorations.pathmorphing,fit}
 
+\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur, decorations.markings,patterns,decorations.pathmorphing,fit,decorations.pathreplacing}
 \tcbuselibrary{breakable}
 %\usepackage[type=none]{fgruler}
 %% Para la semiesfera
@@ -102,6 +96,9 @@
   vertical at/.style={x={([horizontal] #1:1)}, y={(0,cos(\picangle)cm)}},
   every label/.style={font=\tiny, inner sep=1pt},
 }
+\usetikzlibrary{mindmap,trees,backgrounds,shapes.geometric, arrows,shadings,angles, quotes}
+\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur, decorations.markings,patterns,decorations.pathmorphing, shapes.arrows,matrix,positioning}
+\usetikzlibrary{shapes,chains,mindmap,trees,backgrounds,shapes.geometric, arrows,arrows.meta, calc,plotmarks,intersections,shadows.blur,decorations.pathmorphing}
 
 \usepackage{bm}
 
@@ -111,13 +108,10 @@
 
 \usepackage{mathtools}
 \usepackage{wrapfig}
-\usepackage{tikz}
-\usetikzlibrary{calc}
 
 \usepackage{color}
 \definecolor{ultramarine}{RGB}{0,50,150}
-\usepackage{booktabs}
-\usepackage[usenames,dvipsnames]{pstricks}
+
 \definecolor{darkblue}{RGB}{47,68,117}
 \definecolor{lightblue}{RGB}{25,45,185}
 \definecolor{lightgray}{gray}{0.95}
@@ -145,8 +139,6 @@
 \addbibresource{UMIP-bibliography.bib}
 
 %%%%%%%%%%%  BIBLIOGRAPHY  %%%%%%%%%%%%%%%
-\usepackage{booktabs}
-\usepackage[usenames,dvipsnames]{pstricks}
 \definecolor{darkblue}{RGB}{47,68,117}
 \definecolor{2darkblue}{RGB}{0,28,117}
 \definecolor{lightblue}{RGB}{25,45,185}
@@ -278,11 +270,17 @@
 %\end{picture}
 %}
 %\newlength{\drop}
-\def\logowidth{7em}
+\def\logowidth{8.5em}
 
 \def\LOGO{%
 \begin{picture}(0,0)\unitlength=1cm
-\put (-2.85,-2.0) {\includegraphics[width=\logowidth]{logo}}
+\put (-4.3,-2.10) {\includegraphics[width=\logowidth]{logo}}
+\end{picture}}
+
+
+\def\LOGOLANDSCAPE{%
+\begin{picture}(0,0)\unitlength=1cm
+\put (-6.85,-2.0) {\includegraphics[width=9em]{logo}}
 \end{picture}}
 
 \def\LOGOa{%
@@ -297,9 +295,40 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtcolorbox{mybox2}[2][]{colbacktitle=red!10!white,
-colback=red!2!white,coltitle=red!70!black,
-title={#2},fonttitle=\bfseries,#1}
+\newtcolorbox{mybox}[2][]{
+colbacktitle=myPurple!60!white,
+colframe=myPurple,
+colback=myPurple!10!white,
+coltitle=myDarkPurple,
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries,#1}
+
+\newtcolorbox{mybox2}[2][]{
+  toptitle=0.6mm,
+  boxsep=2mm,
+  colbacktitle=colorC!80!white,
+  coltitle=colorA,
+  colback=colorC!20!white,
+  coltext=colorA,
+  colframe=colorC,
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
+
+\newtcolorbox{mybox3}[2][]{
+  toptitle=0.6mm,
+  boxsep=2mm,
+  colbacktitle=colorC!40!white,
+  coltitle=colorA,
+  colback=colorC!20!white,
+  colframe=colorC,
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
+
+\newtcolorbox{mybox4}[2][]{
+  toptitle=0.6mm,
+  boxsep=2mm,
+  colbacktitle=purpleC,
+  coltitle=purpleE,
+  colback=purpleD,
+  colframe=purpleE,
+title={\fontfamily{ugq}\selectfont #2},fonttitle=\bfseries, #1}
 
 \newenvironment{myitemize}{%
 \begin{itemize}}{\end{itemize}}
@@ -310,7 +339,7 @@ borderline west={1mm}{0pt}{red}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newtcolorbox{mybox}[3][]{colback=#3!5!white,colframe=#3!75!black,fonttitle=\bfseries,colbacktitle=red!85!black,title=#2,#1}
+% \newtcolorbox{mybox}[3][]{colback=#3!5!white,colframe=#3!75!black,fonttitle=\bfseries,colbacktitle=red!85!black,title=#2,#1}
 \newtcolorbox{myproblem}[2][]{colframe=red!75!green,colback=red!5,coltitle=black,title={#2},fonttitle=\bfseries,#1}
 
 
@@ -318,7 +347,7 @@ borderline west={1mm}{0pt}{red}
 % %\pointsinrightmargin
 
 % %\pointsinmargin
-% \pointpoints{pto}{pts}
+\pointpoints{pto}{pts}
 % \marginpointname{ \colorea{cyan}{\points}}
 
 % \bonuspointpoints{punto extra}{puntos extra}
@@ -389,6 +418,12 @@ borderline west={1mm}{0pt}{red}
 		** \textsc{\colorea{cyan}{\tema}} **\\[1.4em] \hrule
 }
 
+\newcommand{\encabezadolandscape}{
+		\LOGOLANDSCAPE \scshape \small UNIVERSIDAD MARÍTIMA INTERNACIONAL DE PANAMÁ 
+		\\[0.5em] \textsc{\materia}
+		\\[0.5em]
+		** \textsc{\colorea{cyan}{\tema}} **\\[1.4em] \hrule
+}
 \newcommand{\encabezadoSecond}{
   \footnotesize
 		\LOGOa \scshape UNIVERSIDAD MARÍTIMA INTERNACIONAL DE PANAMÁ 
@@ -415,13 +450,6 @@ borderline west={1mm}{0pt}{red}
 }
 
 \newcommand{\cyanColor}[1]{\colorea{cyan!90!black}{\textbf{#1}}}
-
-\newtcolorbox{mybox3}[2][]{
-  colbacktitle=magenta,
-  colback=magenta!5!white,
-  coltitle=magenta,
-  title={#2},
-  fonttitle=\bfseries,#1}
 
 \newcommand{\instrucciones}{
 		\begin{mybox3}[detach title,before upper={\tcbtitle \\[4pt]}]{INSTRUCCIONES}
@@ -576,27 +604,110 @@ Consteste las siguientes preguntas y resuelva los siguientes problemas con clari
 
 }
 
-\newtcolorbox[use counter=ejemplo]{ejemplo}[1][]{
-  colframe=frameejemplo,
-  colback=backejemplo,
-  coltitle=white!65,
-  title={Ejemplo \thetcbcounter},
+\newtcolorbox[use counter=ejemplo]{ejemplo}[2][]{
+  colframe=colorC,
+  colback=white,
+  coltitle=white,
+  title={\fontfamily{ugq}\selectfont Ejemplo \thetcbcounter - #2},
   fonttitle=\bfseries
   }
-  \newtcolorbox{tcbOne}{
+\newcounter{testPart}
+  \newtcolorbox[use counter=testPart]{tPart}[2][]{
     frame code={}
     center title,
     left=0pt,
     right=0pt,
     top=0pt,
     bottom=0pt,
-    colback=gray!30,
-    colframe=white,
-    width=\dimexpr\textwidth\relax,
+    % width=\dimexpr\textwidth\relax,
     enlarge left by=0mm,
     boxsep=5pt,
     arc=0pt,outer arc=0pt,    
+    colframe=myPurple,
+    colback=myPurple!10!white,
+    coltitle=myDarkPurple,
+    title={{\fontfamily{ugq}\selectfont \thetcbcounter) #2}},
+    % detach title,before upper={\tcbtitle\quad},
+    attach title to upper={ }
   }
+
+  \newtcolorbox{purpleDiv}[2][]{
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=10pt,
+    arc=0pt,outer arc=0pt,    
+    colframe=myPurple,
+    colback=myPurple!10!white,
+    coltitle=myDarkPurple,
+    title={{\fontfamily{ugq}\selectfont #2}},
+    % detach title,before upper={\tcbtitle\quad},
+    attach title to upper={ }
+  }
+
+  \newtcolorbox{solu}[1][]{
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    width=\dimexpr0.45\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,    
+    colframe=colorC,
+    colback=colorC!10!white,
+    coltitle=colorC,
+    % title={{\fontfamily{ugq}\selectfont Sol) #1}},
+  }
+
+
+  \newtcbox{\alerta}{
+    enhanced,
+    nobeforeafter,
+    tcbox raise base,
+    boxrule=0.4pt,
+    arc=1pt,
+    boxsep=1pt,
+    before upper={\vphantom{dlg}},
+    colframe=colorC,
+    fontupper=\fontfamily{ugq}\selectfont \bfseries,
+    coltext=colorA,
+    colback=colorC!20!white,
+  }
+  
+  
+    
+\newtcolorbox[]{alertas}[1][]{
+	% enhanced,
+	nobeforeafter,
+	tcbox raise base,
+	boxrule=0.4pt,
+	arc=12pt,
+	boxsep=2pt,
+	top=4pt,
+	left=1cm,
+	colframe=primary,
+  coltext=colorA,
+  fontupper=\fontfamily{ugq}\selectfont,
+	colback=colorC!10!white,
+	% overlay={
+	% 	\begin{tcbclipinterior}
+	% 	\fill[colorC] (frame.south west) rectangle node[text=white,font=\bfseries\Huge] {!} ([xshift=8mm]frame.north west);
+	% 	\end{tcbclipinterior}
+	% }
+}
+\newcommand{\solut}[1][]{
+  \begin{alertas}
+    #1
+  \end{alertas}
+}
 %   \tcbset{
 %     frame code={}
 %     center title,
@@ -669,4 +780,68 @@ Consteste las siguientes preguntas y resuelva los siguientes problemas con clari
 \def\linker{/home/ericlucero/Dropbox/00-academic/UMIP/media/latexDraw/parciales/}
 
 \newcounter{examPart}
-\newcommand{\angulo}[1]{\SI{#1}{\degree} }
+% \newcommand{\angulo}[1]{\SI{#1}{\degree} }
+\newcommand{\angulo}[2]{\tan^{-1}\left(\frac{#1}{#2}\right) }
+\newcommand{\modulo}[4]{\sqrt{\left(#1\right)^2 + \left(#2\right)^2} = \sqrt{#3 + #4}}
+
+
+%%%%%%%%%%%%%%%%%   BEAMER FONT FAMILY   %%%%%%%%%%%%%%%%%
+% \usepackage[default]{comfortaa}  % comfortaa
+\usepackage[default]{lato}  % lato
+% Grotesk font
+\newcommand{\grotesk}{\fontfamily{ugq}\selectfont}
+\usepackage[T1]{fontenc}
+%%%%%%%%%%%%%%%%%   BEAMER FONT FAMILY   %%%%%%%%%%%%%%%%%
+
+\newcommand{\polarForm}[2]{r = #1,\; \theta = \SI{#2}{\degree}}
+\newcommand{\polarFormA}[2]{#1 \left(\cos \left(\SI{#2}{\degree}\right) + i \sin \left(\SI{#2}{\degree}\right) \right)}
+\newcommand{\polarFormB}[2]{\displaystyle #1 \left(\cos \left(#2\right) + i \sin \left(#2\right) \right)}
+\newcommand{\polarform}[2]{#1 \left(\cos \left(\SI{#2}{\degree}\right) + i \sin \left(\SI{#2}{\degree}\right) \right)}
+\newcommand{\cmpl}[2]{#1 #2 i}
+
+
+\newcommand{\altr}[1]{\textbf{\colorea{colorA}{\grotesk #1}}}
+\newcommand{\bltr}[1]{\textbf{\colorea{colorC}{\grotesk #1}}}
+\newcommand{\pltr}[1]{\textbf{\colorea{myPurple}{\grotesk #1}}}
+
+\newcommand{\DeMoivrerad}[2]{#1 \left(\cos #2 + i \sin #2\right)}
+
+
+% TIKZ STYLES
+% -- Nodes
+\tikzstyle{infonode}=[font=\large,inner sep=10pt,rounded corners=3pt,above right,draw,align=center,fill=myGreen!50]
+\tikzstyle{arrownode}=[-Triangle,line width=0.9mm, color=myPurple]
+\tikzstyle{arrowRed}=[-Triangle,line width=0.9mm, color=red]
+\tikzstyle{arrowOrange}=[-Triangle,line width=0.9mm, color=colorC]
+\tikzstyle{arrowBlue}=[-Triangle,line width=0.9mm, color=blue]
+\tikzstyle{arrowBlack}=[-Triangle,line width=0.9mm, color=black]
+\tikzstyle{arrowGreen}=[-Triangle,line width=0.9mm, color=myGreen]
+\tikzstyle{arrowSmall}=[-Triangle,line width=0.5mm, color=myGreen]
+
+\tikzstyle{arrowthin}=[-Triangle,line width=0.5mm, color=colorC]
+\tikzstyle{arrowFake}=[-Triangle,line width=0.5mm, color=colorC, opacity=0.3]
+
+% -- Free fall
+\tikzstyle{transition}=[rectangle,draw=black!50,fill=black!20,thick]
+\tikzstyle{wall}=[ultra thick, draw=red!60!black, fill=red ,pattern=bricks, pattern color=white]
+\tikzstyle{wallfill}=[ultra thick, draw=red!60!black, fill=red!40]
+\tikzstyle{ballStyle}=[fill=blue, draw=none]
+\tikzstyle{ballFake}=[fill=blue, draw=none, opacity=0.25]
+
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\tikzstyle{support} = [pattern = north west lines]
+\tikzstyle{axisArrow} = [dashed,-Triangle, line width=0.8mm, black!60!white]
+\tikzstyle{axisArrowSolid} = [-Triangle, line width=0.5mm, black!40!white]
+\tikzstyle{arrowA}=[-Triangle, line width=0.8mm,myPurple]
+\tikzstyle{arrowB}=[-Triangle, line width=0.8mm,colorC]
+\tikzstyle{smallLabel} = [align=center,text width=2.85cm,rounded corners,fill=myYellow!60,inner sep=3mm, right]
+
+\tikzstyle{greenLabel} = [align=center,rounded corners,fill=myGreen!30,inner sep=2.3mm, draw=myGreen]
+\tikzstyle{purpleLabel} = [align=center,rounded corners,fill=myPurple!20,inner sep=1.8mm,draw=myPurple]
